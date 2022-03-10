@@ -6,7 +6,7 @@ procedure divisible is
     n : Natural := 15;
     d : Natural := 7;
 begin
-  if n mod d = 0 then
+  if n rem d = 0 then
     put("d ∣ n ");
     else
     put("d ∤ n ");
