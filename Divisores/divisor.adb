@@ -9,7 +9,7 @@ procedure Divisor is
   put(n);   New_Line; 
   while d*d <= n loop  
     if n mod d = 0 then
-      put(d);
+      put(d); New_Line;
       end if;
     d := d+1;
     end loop;
