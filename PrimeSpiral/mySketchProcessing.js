@@ -31,7 +31,7 @@ function draw() {
 	textAlign(CENTER,CENTER);
 	fill(255);
 	if(isPrime(num)){
-		text("●", x, y);
+		text("●", x, y); //text(num, x, y);
 	} else {
 		if (num == 1){text("○", x, y)}
 		else{
