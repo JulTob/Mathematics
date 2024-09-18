@@ -9,31 +9,50 @@
 -- Experiment: Controlled parameters
 -- Random Assignment: When samples are divided into control group and experimental
 
-type Number is new Integer;
+package body Statistics is
 
-type Probability is New Float range 0.0 .. 1.0 digits 10;
 
-type Frequency is new record   
-  ThisMany: Natural;
-  OutOf: Natural;
-  end record;
+  -- Mean Calculation
+  function Mean (Data : Measures_Array) return Number is
+    Total : Number := 0.0;
+    begin
+      for I in Data'Range loop
+        Total := Total + Data(I);
+        end loop;
+      return Total / Number(Data'Length);
+      end Mean;
 
-type Population is new Enum
-  ( Value1, Value2);
+  -- Variance Calculation
+  function Variance (Data : Measures_Array) return Number is
+    M : Number := Mean(Data);
+    Total : Number := 0.0;
+    begin
+      for I in Data'Range loop
+        Total := Total + (Data(I) - M) ** 2;
+        end loop;
+      return Total / Number(Data'Length);
+      end Variance;
 
---Population: Sample Space
-type Measures_type is new Array(Population);
+  -- Standard Deviation Calculation
+  function Standard_Deviation (Data : Measures_Array) return Number is
+    begin
+      return Ada.Numerics.Sqrt(Variance(Data));
+      end Standard_Deviation;
 
-Function New_Measures() return Measures_type
-  New_Measures: Measures:= (others=>0);
-  begin
-    return New_Measures;
-    end New_Measures;
+  -- Random Sampling Function
+  function Random_Sample (Data : Measures_Array; Sample_Size : Positive) return Measures_Array is
+    package Random_Floats is new Ada.Numerics.Float_Random;
+    Gen : Random_Floats.Generator;
+    Sample : Measures_Array(1 .. Sample_Size);
+    Picked : Positive;
+    begin
+      Random_Floats.Reset(Gen);
+      for I in 1 .. Sample_Size loop
+        Picked := Positive(Random_Floats.Random(Gen) * Number(Data'Length)) + 1;
+        Sample(I) := Data(Picked);
+        end loop;
+      return Sample;
+      end Random_Sample;
 
-function Measured_Sample() return Measures_type is
-  Sample: Measures_type := (others => 0);
-  begin
-    -- Placeholder logic: Sample of measures is returned
-    return Sample;
-    end Measured_Sample;
+  end Statistics;
 
