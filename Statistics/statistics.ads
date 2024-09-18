@@ -9,14 +9,22 @@
 -- Experiment: Controlled parameters
 -- Random Assignment: When samples are divided into control group and experimental
 
-type Number is new Integer;
+with Ada.Numerics.Float_Random;
 
-type Probability is New Float range 0.0 .. 1.0 digits 10;
+package Statistics is
+  
+  type Number is new Float;
 
-type Frequency is new record   
-  ThisMany: Natural;
-  OutOf: Natural;
-  end record;
+  type Measures_Array is array (Positive range <>) of Number;
 
-function New_Measures return Measures_type;
-function Measured_Sample return Measures_type;
+  type Probability is New Float range 0.0 .. 1.0 digits 10;
+
+  -- Basic statistics functions
+  function Mean (Data : Measures_Array) return Number;
+  function Variance (Data : Measures_Array) return Number;
+  function Standard_Deviation (Data : Measures_Array) return Number;
+
+  -- Sampling functions
+  function Random_Sample (Data : Measures_Array; Sample_Size : Positive) return Measures_Array;
+
+  end Statistics;
