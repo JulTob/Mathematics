@@ -17,6 +17,16 @@ package body Statistics is
       return Number(Float(X));
       end Number;
 
+  -- Conversion for array of Floats to array of Numbers
+  function To_Data_Array (Data : array (Positive range <>) of Float) return Measures_Array is
+    Result : Measures_Array(1 .. Data'Length);
+    begin
+      for I in Data'Range loop
+        Result(I) := Number(Data(I));
+        end loop;
+      return Result;
+      end To_Data_Array;
+
 
   -- Mean Calculation
   function Mean (Data : Measures_Array) return Number is
