@@ -11,6 +11,12 @@
 
 package body Statistics is
 
+  -- Implicit conversion from Integer to Number
+  function Number (X : Integer) return Number is
+    begin
+      return Number(Float(X));
+      end Number;
+
 
   -- Mean Calculation
   function Mean (Data : Measures_Array) return Number is
