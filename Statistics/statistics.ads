@@ -16,6 +16,8 @@ package Statistics is
   type Number is private;
 
   type Measures_Array is array (Positive range <>) of Number;
+  function To_Data_Array (Data : array (Positive range <>) of Float) return Measures_Array;
+  function To_Data_Array (Data : array (Positive range <>) of Integer) return Measures_Array;
 
   type Probability is New Float range 0.0 .. 1.0 digits 10;
 
