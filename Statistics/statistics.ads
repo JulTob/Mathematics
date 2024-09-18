@@ -13,7 +13,7 @@ with Ada.Numerics.Float_Random;
 
 package Statistics is
   
-  type Number is new Float;
+  type Number is private;
 
   type Measures_Array is array (Positive range <>) of Number;
 
@@ -26,5 +26,9 @@ package Statistics is
 
   -- Sampling functions
   function Random_Sample (Data : Measures_Array; Sample_Size : Positive) return Measures_Array;
+
+  private
+    -- Defining Number as a fixed-point type with delta precision
+    type Number is delta 0.001;
 
   end Statistics;
