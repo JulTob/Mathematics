@@ -1,4 +1,4 @@
-Mathematics Topics and Code.
+# Mathematics Topics and Code.
 
 Check the wiki for a complete introduction and theory of the topics.
 
