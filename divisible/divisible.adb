@@ -8,8 +8,8 @@ procedure divisible is
 begin
   if n rem d = 0 then
     put("d ∣ n ");
-    else
+  else
     put("d ∤ n ");
-    end if;
+  end if;
 
 end Divisible;
