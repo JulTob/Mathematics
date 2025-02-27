@@ -5,11 +5,11 @@ with Ada.Text_IO; use Ada.Text_IO;
 procedure divisible is
     n : Natural := 15;
     d : Natural := 7;
-begin
-  if n rem d = 0 then
-    put("d ∣ n ");
-  else
-    put("d ∤ n ");
-  end if;
+    begin
+      if n rem d = 0 then
+        put("d ∣ n ");
+      else
+        put("d ∤ n ");
+      end if;
 
-end Divisible;
+    end Divisible;
