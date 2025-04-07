@@ -7,6 +7,9 @@ def LoadPrimes(filename='primes.txt'):
         return [2]  # start with the first prime
 
 def SavePrimes(primes, filename='primes.txt'):
+    primes = sorted(primes)
+    print(primes) 
+    return #comment out for local environments
     with open(filename, 'w') as file:
         file.write(','.join(str(p) for p in primes))
         
