@@ -9,6 +9,8 @@ A \mathbf{v} = \lambda \mathbf{v}
 ```
 - A es una matriz cuadrada $n \times n$
 - $\mathbf{v} \neq \mathbf{0}$ es un autovector (o vector propio),
+  - Solo los $\mathbf{v}$ que permanecen alineados consigo mismos tras la transformación $A$ (solo que escalados por $\lambda$) satisfacen esta ecuación.
+  - La matriz $A$ no les cambia la dirección, solo los estira o encoge (o los invierte si $\lambda$ es negativo)
 - $\lambda$ es el autovalor.
 
 ### Multiplicidad Algebraica
@@ -60,3 +62,9 @@ flowchart TB
   C1 ==> AL
   C2 ==> G
 ```
+
+
+
+
+
+
