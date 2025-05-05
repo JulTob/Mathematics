@@ -42,7 +42,7 @@ To its core, $\color{gold}𝑀𝑎𝑡ℎ𝑒𝑚𝑎𝑡𝑖𝑐𝑠$ is the st
 ⚙️ Mathematical thinking is not just about numbers, it is about the thought itself. 
 
 [<img src="https://img.youtube.com/vi/B1J6Ou4q8vE/0.jpg"
-width = 200 align="char">](https://youtu.be/B1J6Ou4q8vE)
+width = 200 align="right">](https://youtu.be/B1J6Ou4q8vE)
 
 ### 💡 Problem Solving & Logical Thinking
 💡 Mathematics trains the mind to break down problems and think logically. Whether you’re tackling a challenging riddle or a real-world puzzle, structured reasoning is key. 
