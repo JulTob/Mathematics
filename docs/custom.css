@@ -17,9 +17,9 @@ h1, h2 {
 }
 
 .sidebar ul li a {
-  color: Navy; 
+  color: Azure; 
 }
 
 .sidebar ul li a:hover {
-  background-color: Silver;
+  background-color: #007FFF;
 }
