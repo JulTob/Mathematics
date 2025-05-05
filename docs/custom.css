@@ -79,7 +79,9 @@ blockquote {
   }
 
 code {
+  font-family: 'Courier Prime', mono;
   background: black;
+  font-size: 1.4em;         
   color: lime;
   padding: 0.2em 0.4em;
   border-radius: 3px;
