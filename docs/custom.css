@@ -8,24 +8,15 @@
       background-color: inherit;    /* start from whatever it was before */
       }
     50% {
-      background-color: silver;     /* halfway point */
+        background-color: silver;     /* halfway point */
+        color: black; 
       }
     100% {
       background-color: gold;       /* end point */
       }
     }  
 
-@keyframes silverToGoldText {
-    0% {
-      color: inherit;    /* start from whatever it was before */
-      }
-    50% {
-      color: silver;     /* halfway point */
-      }
-    100% {
-      color: gold;       /* end point */
-      }
-    } 
+
 
 body {
   font-family: Arial, Helvetica, sans-serif;
