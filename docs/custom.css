@@ -3,13 +3,19 @@
 body {
   font-family: Arial, Helvetica, sans-serif;
   background: black;
-  color: Azure;
+  color: Silver;
   }
 
 h1, h2 {
   border-left: 4px solid #04D9FF; 
   padding-left: 10px;
-  color: Azure
+  color: Gold
+}
+
+h3, h4 {
+  border-left: 4px solid #03C8EE; 
+  padding-left: 10px;
+  color: Brass
 }
 
 .sidebar {
