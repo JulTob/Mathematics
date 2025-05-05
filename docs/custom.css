@@ -3,6 +3,18 @@
 @import url('https://fonts.googleapis.com/css2?family=Rouge+Script&display=swap'); 
 /* loads the font from Google’s CDN :contentReference[oaicite:0]{index=0} */
 
+@keyframes silverToGold {
+    0% {
+      background-color: inherit;    /* start from whatever it was before */
+      }
+    50% {
+      background-color: silver;     /* halfway point */
+      }
+    100% {
+      background-color: gold;       /* end point */
+      }
+    }  
+
 body {
   font-family: Arial, Helvetica, sans-serif;
   background: black;
@@ -31,8 +43,8 @@ h{
 }
 
 .sidebar ul li a:hover {
-  color: black;
-  background-color: #007FFF;
+  animation: silverToGold 4s ease-in-out forwards;
+  color: Black;
 }
 
 .quotes {
