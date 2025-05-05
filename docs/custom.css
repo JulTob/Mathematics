@@ -26,15 +26,15 @@ body {
   }
 
 h1, h2 {
-  border-left: 4px solid #04D9FF; 
+  border-left: 4px solid Brass; 
   padding-left: 10px;
-  color: Gold
+  color: Gold;
 }
 
 h1, h2, h3, h4, h5, h6 {
-  border-left: 4px solid #03C8EE; 
+  border-left: 4px solid Brass; 
   padding-left: 10px;
-  color: Gold
+  color: Gold !important;
 }
 
 .sidebar {
