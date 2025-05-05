@@ -44,7 +44,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .sidebar ul li a:hover {
-  animation: ToGold 1s ease-in-out forwards;
+  animation: ToGold 0.2s ease-in-out forwards;
   color: Black;
 }
 
