@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap&subset=latin,greek-ext');
-
+@import url('https://fonts.googleapis.com/css2?family=Rouge+Script&display=swap'); 
+/* loads the font from Google’s CDN :contentReference[oaicite:0]{index=0} */
 
 body {
   font-family: Arial, Helvetica, sans-serif;
@@ -35,12 +36,12 @@ h{
 }
 
 .quotes {
-  font-family: 'Great Vibes', cursive;
+  font-family: 'Rouge Script', 'Great Vibes', cursive;
   font-size: 1.6em;         
     /* a bit larger for flourish */
   color: gold;           
   padding: 0.2em 0.4em;     
-  border-left: 3px solid #e0c097; 
+  border-left: 3px solid Brass; 
     /* subtle “quote bar” */
   margin: 1em 0;
   display: block;           
