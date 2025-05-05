@@ -64,15 +64,25 @@ h1, h2, h3, h4, h5, h6 {
 
 blockquote {
   font-family: 'Courier Prime', mono;
-  font-size: 1.6em;         
+  font-size: 1.4em;         
     /* a bit larger for flourish */
-  color: gold;           
-  padding: 0.2em 0.4em;     
+  color: silver;           
+  padding: 1em 1.2em;     
   border-left: 3px solid Brass; 
     /* subtle “quote bar” */
   margin: 1em 0;
   display: block;           
     /* so it behaves like a blockquote */
   line-height: 1.4;
+  background-color: #001;
+  background: #001;
   }
+
+.content code {
+  background: black;
+  color: lime;
+  padding: 0.2em 0.4em;
+  border-radius: 3px;
+  font-size: 0.95em;
+}
 
