@@ -13,11 +13,11 @@ h1, h2 {
 }
 
 .sidebar {
-  background-color: DarkBlue; 
+  background-color: #EEF; 
 }
 
 .sidebar ul li a {
-  color: NavyBlue; 
+  color: Navy; 
 }
 
 .sidebar ul li a:hover {
