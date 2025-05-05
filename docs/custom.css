@@ -78,7 +78,7 @@ blockquote {
   background: #001;
   }
 
-.content code {
+code {
   background: black;
   color: lime;
   padding: 0.2em 0.4em;
