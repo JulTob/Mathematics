@@ -54,22 +54,6 @@ width = 200 align="right">](https://youtu.be/B1J6Ou4q8vE)
 
 ### 🧰 Sets & Structures
 * 🧰 The fundamental building blocks of mathematics. Sets are the building blocks from which mathematical structures are built. They form the foundation for topics ranging from algebra to topology.
-```Py
-# Define two sets
-A = {1, 2, 3, 4}
-B = {3, 4, 5, 6}
-
-# Common set operations
-print("Union:", A | B)          # {1, 2, 3, 4, 5, 6}
-print("Intersection:", A & B)   # {3, 4}
-print("Difference (A - B):", A - B)  # {1, 2}
-```
-
-```bash
-Union: {1, 2, 3, 4, 5, 6}
-Intersection: {3, 4}
-Difference (A - B): {1, 2}
-```
 
 ### ⚖️  Algebra
 - ⚖️ The art of abstraction, the key to unlocking the unknown.
