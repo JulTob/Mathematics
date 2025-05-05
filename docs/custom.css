@@ -16,9 +16,9 @@ h1, h2 {
 }
 
 .sidebar ul li a {
-  color: Turquoise; 
+  color: SlateGray; 
 }
 
 .sidebar ul li a:hover {
-  background-color: PaleTurquoise;
+  background-color: Silver;
 }
