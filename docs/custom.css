@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap&subset=latin,greek-ext');
 @import url('https://fonts.googleapis.com/css2?family=Rouge+Script&display=swap'); 
+@import url('https://fonts.googleapis.com/css2?family=Courier+Prime&display=swap'); 
 /* loads the font from Google’s CDN :contentReference[oaicite:0]{index=0} */
 
 @keyframes ToGold {
@@ -61,4 +62,17 @@ h1, h2, h3, h4, h5, h6 {
   line-height: 1.4;
   }
 
+blockquote {
+  font-family: 'Courier Prime', mono;
+  font-size: 1.6em;         
+    /* a bit larger for flourish */
+  color: gold;           
+  padding: 0.2em 0.4em;     
+  border-left: 3px solid Brass; 
+    /* subtle “quote bar” */
+  margin: 1em 0;
+  display: block;           
+    /* so it behaves like a blockquote */
+  line-height: 1.4;
+  }
 
