@@ -7,12 +7,13 @@
     0% {
       background-color: inherit;    /* start from whatever it was before */
       }
-    50% {
+    80% {
         background-color: silver;     /* halfway point */
-        color: black; 
+        
       }
     100% {
       background-color: gold;       /* end point */
+      color: black; 
       }
     }  
 
