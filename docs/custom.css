@@ -15,6 +15,18 @@
       }
     }  
 
+@keyframes silverToGoldText {
+    0% {
+      color: inherit;    /* start from whatever it was before */
+      }
+    50% {
+      color: silver;     /* halfway point */
+      }
+    100% {
+      color: gold;       /* end point */
+      }
+    } 
+
 body {
   font-family: Arial, Helvetica, sans-serif;
   background: black;
@@ -60,3 +72,7 @@ h{
     /* so it behaves like a blockquote */
   line-height: 1.4;
   }
+
+.quotes:hoover {
+    animation: silverToGoldText 1s ease-in-out forwards;
+    }
