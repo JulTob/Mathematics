@@ -12,16 +12,34 @@
         loadSidebar: 'sidebar.md',  // we explicitly use "sidebar.md"
         auto2top: true,
         name: 'Mathematics Notes',
-        };
-      window.$docsify.plugins = [
-        function(hook, vm) {
-          hook.doneEach(() => {
-            MathJax.typesetPromise();
-            });
-          }
-        ];
+        subMaxLevel: 2,
+        sidebarDisplayLevel: 1,
+        hideSidebar: false,
+
+      latex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$', '$$'], ['\\[', '\\]']]
+        }
+      };
+
 
       </script>
     <script src="https://cdn.jsdelivr.net/npm/docsify/lib/docsify.min.js"></script>
+
+    <!-- Docsify core -->
+<script src="https://cdn.jsdelivr.net/npm/docsify@4"></script>
+
+<!-- MathJax engine -->
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+<!-- Docsify MathJax plugin -->
+<script src="https://cdn.jsdelivr.net/npm/docsify-latex@0"></script>
+
+
+
+<!-- Docsify main engine -->
+<script src="https://cdn.jsdelivr.net/npm/docsify/lib/docsify.min.js"></script>
+
+    
     </body>
   </html>
