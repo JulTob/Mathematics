@@ -89,3 +89,15 @@ code {
   font-size: 0.95em;
 }
 
+/* docs/custom.css */
+
+/* Target *all* heading levels inside your Markdown area */
+.markdown-section h1,
+.markdown-section h2,
+.markdown-section h3,
+.markdown-section h4,
+.markdown-section h5,
+.markdown-section h6 {
+  color: gold !important;
+}
+
