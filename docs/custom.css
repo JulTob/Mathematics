@@ -6,18 +6,18 @@ body {
   }
 
 h1, h2 {
-  border-left: 4px solid #0b6e4f; /* Safety-green color */
+  border-left: 4px solid #04D9FF; 
   padding-left: 10px;
 }
 
 .sidebar {
-  background-color: Electric; /* calm, safe background */
+  background-color: Linen; 
 }
 
 .sidebar ul li a {
-  color: Electric; /* deep, stable green */
+  color: Turquoise; 
 }
 
 .sidebar ul li a:hover {
-  background-color: ElectricBlue;
+  background-color: PaleTurquoise;
 }
