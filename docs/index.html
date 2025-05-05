@@ -13,6 +13,14 @@
         auto2top: true,
         name: 'Mathematics Notes',
         };
+      window.$docsify.plugins = [
+        function(hook, vm) {
+          hook.doneEach(() => {
+            MathJax.typesetPromise();
+            });
+          }
+        ];
+
       </script>
     <script src="https://cdn.jsdelivr.net/npm/docsify/lib/docsify.min.js"></script>
     </body>
