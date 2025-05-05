@@ -42,14 +42,13 @@ h1, h2, h3, h4, h5, h6 {
 
 .sidebar ul li a {
   color: Silver; 
-background-color: #001; 
-
-}
+  background-color: Chocolate; 
+    
+    }
 
 .sidebar ul li a:hover {
-  animation: ToGold 0.2s ease-in-out forwards;
-  color: Black;
-}
+    animation: ToGold 0.2s ease-in-out forwards;
+    }
 
 .quotes {
   font-family: 'Rouge Script', 'Great Vibes', cursive;
