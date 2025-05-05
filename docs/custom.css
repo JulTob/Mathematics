@@ -41,7 +41,9 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .sidebar ul li a {
-  color: SlateGray; 
+  color: #00000f; 
+background-color: #001; 
+
 }
 
 .sidebar ul li a:hover {
