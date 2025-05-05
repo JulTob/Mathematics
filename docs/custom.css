@@ -55,7 +55,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .sidebar ul li a:hover {
-  animation: silverToGold 4s ease-in-out forwards;
+  animation: silverToGold 0.25s ease-in-out forwards;
   color: Black;
 }
 
@@ -73,6 +73,4 @@ h1, h2, h3, h4, h5, h6 {
   line-height: 1.4;
   }
 
-.quotes:hoover {
-    animation: silverToGoldText 1s ease-in-out forwards;
-    }
+
