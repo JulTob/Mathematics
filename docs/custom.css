@@ -36,12 +36,12 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .sidebar {
-  color: #007FFF; 
+  color: silver; 
   background-color: #001; 
 }
 
 .sidebar ul li a {
-  color: #00000f; 
+  color: Silver; 
 background-color: #001; 
 
 }
