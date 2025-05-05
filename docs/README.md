@@ -6,7 +6,7 @@
   <img src='https://upload.wikimedia.org/wikipedia/commons/9/91/Head_of_Ptolemy_II_or_III_MET_EG66.99.134.jpeg' width=150 align=right>
 
 
->  <span style="color: cyan;">μὴ εἶναι βασιλικὴν ἀτραπὸν ἐπί γεωμετρίαν </span>        
+>  <span style="color: gold;">μὴ εἶναι βασιλικὴν ἀτραπὸν ἐπί γεωμετρίαν </span>        
 >  _"There’s no royal road to mathematics."_  
 >  - 𓁞 Euclides, _in answer to the Pharaoh Ptolemy I_ 𓁛
 
@@ -80,8 +80,8 @@ width= 200 align="right">
 
 Mathematics is often compared to music: a harmonious blend of structure and creativity. 
 
-> <span style="color: Fuchsia;">🎹 “Music is the pleasure the human soul experiences from counting without being aware that it is counting.” </span>
-> * <span style="color: Fuchsia;">Gottfried Leibniz</span>
+> <span style="color: Gold; padding: 4px">🎹 “Music is the pleasure the human soul experiences from counting without being aware that it is counting.” </span>
+> * <span style="color: Gold;">Gottfried Leibniz</span>
 
 ⚙️🔭🧬🔬⚗️💻  Mathematics is not merely a tool for scientific progress; it is the engine of innovation in technology, science, and even the arts. From the algorithms that power our smartphones to the theories that explain the cosmos, mathematics forms the core logic of modern civilization.  
 
