@@ -5,8 +5,8 @@
 
   <img src='https://upload.wikimedia.org/wikipedia/commons/9/91/Head_of_Ptolemy_II_or_III_MET_EG66.99.134.jpeg' width=150 align=right>
 
->  [!NOTE]
->  $\color{cyan}\text{μὴ εἶναι}$ $\color{cyan}\text{βασιλικὴν}$ $\color{cyan}\text{ἀτραπὸν ἐπί γεωμετρίαν}$     
+
+>  <span style="color: cyan;">μὴ εἶναι βασιλικὴν ἀτραπὸν ἐπί γεωμετρίαν </span>        
 >  _"There’s no royal road to mathematics."_  
 >  - 𓁞 Euclides, _in answer to the Pharaoh Ptolemy I_ 𓁛
 
