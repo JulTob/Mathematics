@@ -7,8 +7,10 @@
 
 <blockquote class="quotes">
 <span style="color: gold;">μὴ εἶναι βασιλικὴν ἀτραπὸν ἐπί γεωμετρίαν </span>        
+
 _"There’s no royal road to mathematics."_  
-- - 𓁞 Euclides, _in answer to the Pharaoh Ptolemy I_ 𓁛
+
+- 𓁞 Euclides, _in answer to the Pharaoh Ptolemy I_ 𓁛
 </blockquote>
 
 # 🌟 What is 𝑀𝑎𝑡ℎ𝑒𝑚𝑎𝑡𝑖𝑐𝑠?
