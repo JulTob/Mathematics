@@ -12,10 +12,10 @@ h1, h2 {
   color: Gold
 }
 
-h3, h4 {
+h{
   border-left: 4px solid #03C8EE; 
   padding-left: 10px;
-  color: Brass
+  color: Gold
 }
 
 .sidebar {
