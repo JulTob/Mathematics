@@ -13,6 +13,7 @@ h1, h2 {
 }
 
 .sidebar {
+  color: #007FFF; 
   background-color: #EEF; 
 }
 
@@ -21,5 +22,6 @@ h1, h2 {
 }
 
 .sidebar ul li a:hover {
+  color: black;
   background-color: #007FFF;
 }
