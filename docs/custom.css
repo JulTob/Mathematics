@@ -7,6 +7,7 @@
 @keyframes ToGold {
     0% {
       background-color: inherit;    /* start from whatever it was before */
+      color: inherit;    /* start from whatever it was before */
       }
     100% {
       background-color: gold;       /* end point */
