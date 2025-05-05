@@ -6,11 +6,12 @@
   <img src='https://upload.wikimedia.org/wikipedia/commons/9/91/Head_of_Ptolemy_II_or_III_MET_EG66.99.134.jpeg' width=150 align=right>
 
 <blockquote class="quotes">
-<span style="color: gold;">μὴ εἶναι βασιλικὴν ἀτραπὸν ἐπί γεωμετρίαν </span>        
+<span style="color: gold;">μὴ εἶναι βασιλικὴν ἀτραπὸν ἐπί γεωμετρίαν        
 
 _"There’s no royal road to mathematics."_  
 
 - 𓁞 Euclides, _in answer to the Pharaoh Ptolemy I_ 𓁛
+</span> 
 </blockquote>
 
 # 🌟 What is 𝑀𝑎𝑡ℎ𝑒𝑚𝑎𝑡𝑖𝑐𝑠?
