@@ -50,45 +50,46 @@ width = 200 align="right">](https://youtu.be/JbhBdOfMEPs)
 
 Consider the Fibonacci sequence. Starting with two numbers (0 and 1), a simple rule (each number is the sum of the two preceding ones) generates a sequence that appears in nature and art. Here’s a small Python snippet to generate it:
 
-<textarea id="editor" rows="8" style="width:100%;font-family:monospace">
-    
+## 🐍 Live Fibonacci Playground
+
+<textarea id="editor" rows="8" style="width:100%; font-family: monospace;">
 def fibonacci(n):
     """Return the first n Fibonacci numbers."""
-    sequence = [0, 1]
+    seq = [0, 1]
     for _ in range(2, n):
-        sequence.append(sequence[-1] + sequence[-2])
-    return sequence
+        seq.append(seq[-1] + seq[-2])
+    return seq
 
 # Generate and display the first 10 Fibonacci numbers
 print(fibonacci(10))
-textarea
-<!-- A “Run” button -->
+</textarea>
+
 <button id="run-btn">Run ▶️</button>
 
-<!-- Where we’ll dump stdout -->
-<pre id="output" style="background:#f3f3f3;padding:1em;"></pre>
+<pre id="output" style="background:#f3f3f3; padding:1em;"></pre>
 
-<!-- PyScript block to wire it all up -->
 <py-script>
 from js import document
 import sys
 from io import StringIO
 
-def run_code(evt):
+def run_code(evt=None):
     code = document.getElementById("editor").value
     buf = StringIO()
-    old, sys.stdout = sys.stdout, buf
+    old_stdout, sys.stdout = sys.stdout, buf
     try:
         exec(code, globals())
     except Exception as e:
         buf.write(f"Error: {e}")
-    sys.stdout = old
+    sys.stdout = old_stdout
     document.getElementById("output").innerText = buf.getvalue()
 
-# attach our Python function to the button
-document.getElementById("run-btn") \
-        .addEventListener("click", run_code)
+# Bind the button and also run once on load
+document.getElementById("run-btn").addEventListener("click", run_code)
+run_code()
 </py-script>
+
+
 🪜 An $\color{#8B3}\text{Abstraction layer}$ is the conceptualization of a set of elements that conform an estructure without considering the building blocks of these elements. As one would conceptualize a wall as a set of bricks, without worrying if those bricks are ceramic or concrete. What determines a wall is not only the bricks, but their position and the binds of the mortar that ties them together.
 
 🪜 The presence of elements can be derived from the attributes that belong to a lower layer of existence: an Abstraction Layer. A brick is itself a concrete shape of the ceramic elements. Going down to a fundamental necessary level we can find endless layers, or theoretically find this level absent of objects. _Nothing_ can have [properties](https://en.wikipedia.org/wiki/A_Universe_from_Nothing), or so to say: absence is one of the properties present in the _nothingness_. 
