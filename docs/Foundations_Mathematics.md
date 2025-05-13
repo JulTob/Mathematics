@@ -55,31 +55,35 @@ Consider the Fibonacci sequence. Starting with two numbers (0 and 1), a simple r
 
 # Fibonacci Animation
 
-<div id="fib-sketch" style="width:400px; height:400px;"></div>
+<div>
+  <!-- the canvas will auto‐resize to match your sketch's size() -->
+  <canvas id="fibCanvas"></canvas>
+</div>
 
-<script>
-// a tiny p5.js sketch
-const fib = n => n < 2 ? n : fib(n-1) + fib(n-2);
+<script type="application/processing" target="fibCanvas">
+int N = 10;
+int[] f = new int[N];
 
-new p5(p => {
-  const N = 10;
-  let sizes = Array.from({ length: N }, (_, i) => fib(i) * 10);
+void setup() {
+  size(400, 400);
+  // compute fib
+  f[0] = 0;
+  f[1] = 1;
+  for (int i = 2; i < N; i++) {
+    f[i] = f[i-1] + f[i-2];
+  }
+  noLoop();
+}
 
-  p.setup = () => {
-    p.createCanvas(400, 400);
-    p.noLoop();
-  };
-
-  p.draw = () => {
-    p.background(30);
-    let x = 0, y = 0;
-    for (let s of sizes) {
-      p.fill(200, 100, 50, 200);
-      p.square(x, y, s);
-      x += s;  // simple row of squares
-    }
-  };
-}, 'fib-sketch');
+void draw() {
+  background(30);
+  int x = 0;
+  for (int i = 0; i < N; i++) {
+    fill(200, 100, 50, 200);
+    rect(x, height - f[i]*10, f[i]*10, f[i]*10);
+    x += f[i]*10;
+  }
+}
 </script>
 
 
