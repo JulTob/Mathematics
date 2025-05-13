@@ -90,6 +90,7 @@ run_code()
 </py-script>
 
 
+
 🪜 An $\color{#8B3}\text{Abstraction layer}$ is the conceptualization of a set of elements that conform an estructure without considering the building blocks of these elements. As one would conceptualize a wall as a set of bricks, without worrying if those bricks are ceramic or concrete. What determines a wall is not only the bricks, but their position and the binds of the mortar that ties them together.
 
 🪜 The presence of elements can be derived from the attributes that belong to a lower layer of existence: an Abstraction Layer. A brick is itself a concrete shape of the ceramic elements. Going down to a fundamental necessary level we can find endless layers, or theoretically find this level absent of objects. _Nothing_ can have [properties](https://en.wikipedia.org/wiki/A_Universe_from_Nothing), or so to say: absence is one of the properties present in the _nothingness_. 
