@@ -54,7 +54,8 @@ Consider the Fibonacci sequence. Starting with two numbers (0 and 1), a simple r
 
 ## 🐍 Live Fibonacci Playground
 
-<textarea id="editor" rows="8" style="width:100%; font-family: monospace;">
+  <!-- Your original UI -------------------------------------------- -->
+  <textarea id="editor" rows="8" style="width:100%;font-family:monospace">
 def fibonacci(n):
     """Return the first n Fibonacci numbers."""
     seq = [0, 1]
@@ -62,34 +63,30 @@ def fibonacci(n):
         seq.append(seq[-1] + seq[-2])
     return seq
 
-# Generate and display the first 10 Fibonacci numbers
 print(fibonacci(10))
-</textarea>
+  </textarea>
 
-<button id="run-btn">Run ▶️</button>
+  <button id="run-btn">Run ▶️</button>
+  <pre id="output" style="background:#f3f3f3;padding:1em;"></pre>
 
-<pre id="output" style="background:#f3f3f3; padding:1em;"></pre>
-
-<py-script>
+  <!-- 2 – Your Python --------------------------------------------- -->
+  <script type="py" terminal>
 from js import document
-import sys
-from io import StringIO
+import contextlib, io, sys
 
 def run_code(evt=None):
     code = document.getElementById("editor").value
-    buf = StringIO()
-    old_stdout, sys.stdout = sys.stdout, buf
-    try:
-        exec(code, globals())
-    except Exception as e:
-        buf.write(f"Error: {e}")
-    sys.stdout = old_stdout
+    buf = io.StringIO()
+    with contextlib.redirect_stdout(buf), contextlib.redirect_stderr(buf):
+        try:
+            exec(code, globals())
+        except Exception as e:
+            print(f"Error: {e}")
     document.getElementById("output").innerText = buf.getvalue()
 
-# Bind the button and also run once on load
 document.getElementById("run-btn").addEventListener("click", run_code)
-run_code()
-</py-script>
+run_code()  # run once on load
+  </script>
 
 
 
