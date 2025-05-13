@@ -18,7 +18,7 @@ width= 200 align="right">
 Mathematics is often seen as a purely deductive discipline, built from a fixed set of axioms. As Felix Klein pointed out:
 
 <blockquote class="quotes">
-<span style="color: Jade;">
+<span style="color: olive;">
 
 🌳 Many have thought that one must teach all mathematics deductively through [...] a definite number of axioms and deducing everything from these by means of logic.  This method, which some seek to maintain on the authority of Euclid, certainly does not correspond to the historical development of mathematics. In fact, mathematics has grown like a tree, [that] sends its roots deeper at the same time that its branches are spreading upwards.    
 - Felix Klein 
