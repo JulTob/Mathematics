@@ -33,14 +33,14 @@ width = 200 align="right">](https://youtu.be/JbhBdOfMEPs)
 
 
 | <h2>  $\color{Aqua}Emergence$: </h2> |
-|----------------------------|
+|--------------------------------------|
 | - 🛠 Refers to the appearance of new properties as we combine simple elements.  |
 | - 🛠 The attributes and objects that "emerge" from the interaction of elements forming certain $\color{Lime}structures$. |
 | -  New Structures: When basic elements (like numbers or points) interact, they form complex systems such as sets, functions, or even geometric shapes. |
 | - 🪚 In linguistic terms: The $\color{#1bc}verbs$ that arise from the interactions of **nouns**. |
 
 | <h2> $\color{Lime}Structure$: </h2> |
-|--------------|
+|-------------------------------------|
 | The $\color{#888}rules$ or $\color{#927}framework$ behind these combinations. We look for patterns to see which structures are possible, impossible, or fundamental. |
 | Structure have rules governing these combinations.  |
 
@@ -54,7 +54,40 @@ Consider the Fibonacci sequence. Starting with two numbers (0 and 1), a simple r
 
 
 # Fibonacci Animation
-<canvas data-processing-sources="/assets/fib.pde"></canvas>
+# Fibonacci with Processing.js
+
+This example draws the first 10 Fibonacci “squares”:
+
+<div>
+  <!-- the canvas will size itself to whatever you put in size() -->
+  <canvas id="fibCanvas"></canvas>
+</div>
+
+<script type="application/processing" target="fibCanvas">
+// compute Fibonacci numbers
+int N = 10;
+int[] f = new int[N];
+
+void setup() {
+  size(400, 400);      // canvas size
+  f[0] = 1; f[1] = 1;
+  for (int i = 2; i < N; i++) {
+    f[i] = f[i-1] + f[i-2];
+  }
+  noLoop();            // draw only once
+}
+
+void draw() {
+  background(30);
+  int x = 0;
+  for (int i = 0; i < N; i++) {
+    int s = f[i] * 10;   // scale factor
+    fill(200, 100, 50, 200);
+    rect(x, height - s, s, s);
+    x += s;
+  }
+}
+</script>
 
 
 
@@ -80,16 +113,6 @@ Consider the Fibonacci sequence. Starting with two numbers (0 and 1), a simple r
 
 > [!NOTE]
 > 🧱 Numbers derive from verbs (actions) like counting or comparing, not nouns. A "two" exists only because we can count to it.
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -125,18 +148,6 @@ Consider the Fibonacci sequence. Starting with two numbers (0 and 1), a simple r
    <img src="https://drscdn.500px.org/photo/1061252896/m%3D900/v2?sig=5c1c3f0a2adc814c148ebf55b24d0dc0a8087bb0fae20f9a9674ff53f67e8892"
 width= 200 align="right">
 
-
-
-
-
-
-
-
-
-
-
-
-
 # 🏕 Math: invented or discovered?
 Mathematics uniquely straddles the line between invention and discovery.
 
@@ -150,9 +161,7 @@ Mathematics uniquely straddles the line between invention and discovery.
 - 💎 We invent a system (like Euclidean Geometry or Set Theory) by picking axioms.
 - 🌈 Once in place, we discover surprising consequences (theorems) we didn’t anticipate.
 
-
 # 🏘 Paradigms & Proof
-
 
    <img src="https://drscdn.500px.org/photo/1061056341/m%3D900/v2?sig=08c083b1b687ac6b54816c89b08665ba858703f7f3bfefe4f72f48d976c9a32f"
 width= 200 align="right">
