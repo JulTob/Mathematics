@@ -32,15 +32,17 @@ width = 200 align="right">](https://youtu.be/JbhBdOfMEPs)
 🏗 In practice, $\color{Gold}Mathematics$ is the study of $\color{Aqua}\text{Emergent Structures}$: new properties, numbers, shapes, and theorems that arise when simple elements interact under certain rules.
 
 
-> [!IMPORTANT]
-> ##  $\color{Aqua}Emergence$: 
-> - 🛠 Refers to the appearance of new properties as we combine simple elements.  
-> - 🛠 The attributes and objects that "emerge" from the interaction of elements forming certain $\color{Lime}structures$.
-> -  New Structures: When basic elements (like numbers or points) interact, they form complex systems such as sets, functions, or even geometric shapes.
-> - 🪚 In linguistic terms: The $\color{#1bc}verbs$ that arise from the interactions of **nouns**.
-> ## $\color{Lime}Structure$:
-> The $\color{#888}rules$ or $\color{#927}framework$ behind these combinations. We look for patterns to see which structures are possible, impossible, or fundamental.
-> Structure have rules governing these combinations. 
+| <h2>  $\color{Aqua}Emergence$: </h2> |
+|----------------------------|
+| - 🛠 Refers to the appearance of new properties as we combine simple elements.  |
+| - 🛠 The attributes and objects that "emerge" from the interaction of elements forming certain $\color{Lime}structures$. |
+| -  New Structures: When basic elements (like numbers or points) interact, they form complex systems such as sets, functions, or even geometric shapes. |
+| - 🪚 In linguistic terms: The $\color{#1bc}verbs$ that arise from the interactions of **nouns**. |
+
+| <h2> $\color{Lime}Structure$: </h2> |
+|--------------|
+| The $\color{#888}rules$ or $\color{#927}framework$ behind these combinations. We look for patterns to see which structures are possible, impossible, or fundamental. |
+| Structure have rules governing these combinations.  |
 
 🛠 Therefor $\color{Gold}Mathematics$ studies how objects interact and form larger entities, like $\color{#897}sets$ or $\color{#8A6}functions$ .
 
