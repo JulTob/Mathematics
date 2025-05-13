@@ -52,41 +52,35 @@ width = 200 align="right">](https://youtu.be/JbhBdOfMEPs)
 
 Consider the Fibonacci sequence. Starting with two numbers (0 and 1), a simple rule (each number is the sum of the two preceding ones) generates a sequence that appears in nature and art. Here’s a small Python snippet to generate it:
 
-## 🐍 Live Fibonacci Playground
 
-  <!-- Your original UI -------------------------------------------- -->
-  <textarea id="editor" rows="8" style="width:100%;font-family:monospace">
-def fibonacci(n):
-    """Return the first n Fibonacci numbers."""
-    seq = [0, 1]
-    for _ in range(2, n):
-        seq.append(seq[-1] + seq[-2])
-    return seq
+# Fibonacci Animation
 
-print(fibonacci(10))
-  </textarea>
+<div id="fib-sketch" style="width:400px; height:400px;"></div>
 
-  <button id="run-btn">Run ▶️</button>
-  <pre id="output" style="background:#f3f3f3;padding:1em;"></pre>
+<script>
+// a tiny p5.js sketch
+const fib = n => n < 2 ? n : fib(n-1) + fib(n-2);
 
-  <!-- 2 – Your Python --------------------------------------------- -->
-  <script type="py" terminal>
-from js import document
-import contextlib, io, sys
+new p5(p => {
+  const N = 10;
+  let sizes = Array.from({ length: N }, (_, i) => fib(i) * 10);
 
-def run_code(evt=None):
-    code = document.getElementById("editor").value
-    buf = io.StringIO()
-    with contextlib.redirect_stdout(buf), contextlib.redirect_stderr(buf):
-        try:
-            exec(code, globals())
-        except Exception as e:
-            print(f"Error: {e}")
-    document.getElementById("output").innerText = buf.getvalue()
+  p.setup = () => {
+    p.createCanvas(400, 400);
+    p.noLoop();
+  };
 
-document.getElementById("run-btn").addEventListener("click", run_code)
-run_code()  # run once on load
-  </script>
+  p.draw = () => {
+    p.background(30);
+    let x = 0, y = 0;
+    for (let s of sizes) {
+      p.fill(200, 100, 50, 200);
+      p.square(x, y, s);
+      x += s;  // simple row of squares
+    }
+  };
+}, 'fib-sketch');
+</script>
 
 
 
