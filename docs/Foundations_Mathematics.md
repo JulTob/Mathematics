@@ -1,10 +1,7 @@
 # 🏗 Math Fundamentals
 
-> 👶 $\text{\color{#19e}All mathematicians }$
-> $\text{\color{#19e}were very young }$
-> $\text{\color{#19e}when they }$
-> $\text{\color{#19e} were born.}$        
-> － $\text{\color{#19e}Ian Stewart, David Tall: The Foundations of Mathematics.}$ 
+> 👶 All mathematicians were very young when they were born.      
+> － Ian Stewart, David Tall: The Foundations of Mathematics.
 
 Mathematics begins at its very roots—with fundamental ideas that evolve into complex structures. This section lays the groundwork for understanding what mathematics is and how it develops.
 
