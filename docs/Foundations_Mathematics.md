@@ -1,7 +1,12 @@
 # 🏗 Math Fundamentals
 
-> 👶 All mathematicians were very young when they were born.      
-> － Ian Stewart, David Tall: The Foundations of Mathematics.
+<blockquote class="quotes">
+<span style="color: gold;">
+👶 All mathematicians were very young when they were born.
+
+- Ian Stewart, David Tall: The Foundations of Mathematics. 
+</span> 
+</blockquote>
 
 Mathematics begins at its very roots—with fundamental ideas that evolve into complex structures. This section lays the groundwork for understanding what mathematics is and how it develops.
 
@@ -12,26 +17,13 @@ width= 200 align="right">
 
 Mathematics is often seen as a purely deductive discipline, built from a fixed set of axioms. As Felix Klein pointed out:
 
-> 🌳 $\text{\color{#1ad}Many have thought that one must }$ 
-> $\text{\color{#1ad}teach all mathematics deductively }$ 
-> $\text{\color{#1ad}through [...] a definite }$ 
-> $\text{\color{#1ad}number of axioms }$ 
-> $\text{\color{#1ad} and deducing everything }$ 
-> $\text{\color{#1ad}from these by means of logic. }$    
-> $\text{\color{#1ad}This method, which }$ 
-> $\text{\color{#1ad} some seek to maintain }$ 
-> $\text{\color{#1ad}on the authority of Euclid, }$ 
-> $\text{\color{#1ad}certainly does not correspond }$ 
-> $\text{\color{#1ad}to the historical development }$ 
-> $\text{\color{#1ad}of mathematics. }$     
-> $\text{\color{#1ad}In fact, mathematics }$ 
-> $\text{\color{#1ad} has grown like a tree,}$ 
-> $\text{\color{#1ad}[that] sends its roots }$ 
-> $\text{\color{#1ad}deeper at the same time }$ 
-> $\text{\color{#1ad}that its branches }$ 
-> $\text{\color{#1ad}are spreading upwards. }$     
-> - $\text{\color{#1ad}Felix Klein}$  
->        
+<blockquote class="quotes">
+<span style="color: Jade;">
+
+🌳 Many have thought that one must teach all mathematics deductively through [...] a definite number of axioms and deducing everything from these by means of logic.  This method, which some seek to maintain on the authority of Euclid, certainly does not correspond to the historical development of mathematics. In fact, mathematics has grown like a tree, [that] sends its roots deeper at the same time that its branches are spreading upwards.    
+- Felix Klein 
+</span> 
+</blockquote>
 
 [<img src="https://img.youtube.com/vi/JbhBdOfMEPs/0.jpg"
 width = 200 align="right">](https://youtu.be/JbhBdOfMEPs)
