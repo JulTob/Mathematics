@@ -63,8 +63,8 @@ new p5((sketch) => {
     };
 
   sketch.draw = function() {
-      background(220);
-      ellipse(200, 200, 100, 100);
+      sketch.background(220);
+      sketch.ellipse(200, 200, 100, 100);
       };
   });
 
