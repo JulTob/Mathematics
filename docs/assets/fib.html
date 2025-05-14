@@ -19,14 +19,15 @@
 </head>
 <body>
     <script>
-    function setup() {
-      createCanvas(400, 400);
-    }
+function setup() {
+	createCanvas(windowWidth, windowHeight);
+	background(100);
+}
 
-    function draw() {
-      background(220);
-      ellipse(300, 300, 200, 200);
-    }
-  </script>
+function draw() {
+	circle(mouseX, mouseY, 20);
+}
+    
+    </script>
 </body>
 </html>
