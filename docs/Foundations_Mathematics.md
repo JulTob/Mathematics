@@ -86,7 +86,8 @@ function draw() {
 </script>
 
 E
-
+F
+G
 
 🪜 An $\color{#8B3}\text{Abstraction layer}$ is the conceptualization of a set of elements that conform an estructure without considering the building blocks of these elements. As one would conceptualize a wall as a set of bricks, without worrying if those bricks are ceramic or concrete. What determines a wall is not only the bricks, but their position and the binds of the mortar that ties them together.
 
