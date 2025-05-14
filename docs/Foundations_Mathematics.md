@@ -54,41 +54,8 @@ width = 200 align="right">](https://youtu.be/JbhBdOfMEPs)
 Consider the Fibonacci sequence. Starting with two numbers (0 and 1), a simple rule (each number is the sum of the two preceding ones) generates a sequence that appears in nature and art. Here’s a small Python snippet to generate it:
 
 
-# Fibonacci Animation
-<script src="//toolness.github.io/p5.js-widget/p5-widget.js">
-A
-<script type="text/p5">
-function setup() {
-  createCanvas(400, 400);
-}
-
-function draw() {
-  background(220);
-  ellipse(200, 200, 100, 100);
-}
-</script>
-
-B
-<script src="/assets/sketch.js"></script>
-C
-<iframe src="http://p5js.org/test/embed.html" width="600px" height="400px"></iframe>
-
-D
-
-<script type="text/p5">
-function setup() {
-  createCanvas(100, 100);
-}
-
-function draw() {
-  background(255, 0, 200);
-}
-</script>
-</script>
-
-E
-F
-G
+# Fibonacci 
+<iframe src="assets/fib.html" width="600" height="400" style="border:none;"></iframe>
 
 🪜 An $\color{#8B3}\text{Abstraction layer}$ is the conceptualization of a set of elements that conform an estructure without considering the building blocks of these elements. As one would conceptualize a wall as a set of bricks, without worrying if those bricks are ceramic or concrete. What determines a wall is not only the bricks, but their position and the binds of the mortar that ties them together.
 
