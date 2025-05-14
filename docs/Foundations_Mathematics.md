@@ -55,7 +55,17 @@ Consider the Fibonacci sequence. Starting with two numbers (0 and 1), a simple r
 
 # Fibonacci Animation
 A
-<script src="assets/sketch.js"></script>
+<script type="text/p5">
+function setup() {
+  createCanvas(400, 400);
+}
+
+function draw() {
+  background(220);
+  ellipse(200, 200, 100, 100);
+}
+</script>
+
 B
 <script src="/assets/sketch.js"></script>
 C
