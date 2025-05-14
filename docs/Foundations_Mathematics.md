@@ -57,16 +57,16 @@ Consider the Fibonacci sequence. Starting with two numbers (0 and 1), a simple r
 <div id="my-animation"></div>
 <script>
 new p5((sketch) => {
-sketch.setup = function() {
-  let canvas = sketch.createCanvas(400, 400);
-  canvas.parent('my-animation');
-  };
+  sketch.setup = function() {
+    let canvas = sketch.createCanvas(400, 400);
+    canvas.parent('my-animation');
+    };
 
-sketch.draw = function() {
-    background(220);
-    ellipse(200, 200, 100, 100);
-};
-});
+  sketch.draw = function() {
+      background(220);
+      ellipse(200, 200, 100, 100);
+      };
+  });
 
 </script>
 
