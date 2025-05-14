@@ -184,7 +184,7 @@ If you want to investigate these next topics now, you may find some surprising i
 Mathematics, from the fundamentals up, is a living tree. Roots growing deeper into axioms and philosophy, branches spreading outward into new theories and practical discoveries.
 
 <blockquote class="quotes">
- $\color{#009900}\text{“We are what we repeatedly do.”}
+“We are what we repeatedly do.”
    
  – Attributed to Aristotle 
 </blockquote>
