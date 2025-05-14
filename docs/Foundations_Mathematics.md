@@ -66,15 +66,14 @@ width = 200 align="right">](https://youtu.be/JbhBdOfMEPs)
 
 
 
-> [!NOTE]
-> ### Recursive Nature:
-> - 🪞 Mathematics is __itself__ a structure. Mathematics can examine itself, making it both a subject and an object of study​​​. Mathematics is itself necessary and essential. Unavoidable.
+| <h3>  Recursive Nature: <h3> |
+|------------------------------|
+| - 🪞 Mathematics is __itself__ a structure. Mathematics can examine itself, making it both a subject and an object of study​​​. Mathematics is itself necessary and essential. Unavoidable. |
 
 
 
-> [!NOTE]
-> 🧱 Numbers derive from verbs (actions) like counting or comparing, not nouns. A "two" exists only because we can count to it.
-
+| 🧱 Numbers derive from verbs (actions) like counting or comparing, not nouns. A "two" exists only because we can count to it. |
+|----|
 
 
 🧲 We can derive any descriptor from the properties of the elements (existing or not), explaining adjectives, and from interactions (to themselves, others, or the nothingness), the verbs. As such the essence to the noun is derived from naming these interactions as having their particular descriptors as interactions. These are emergent properties that characterized the being.
@@ -140,11 +139,11 @@ width= 200 align="right">
 2. Prove theorems.
 3. Possibly invent new axioms if needed (e.g., the Axiom of Choice in Set Theory).
 
-> [!NOTE]
-> ### A puzzle to ponder:
-> Russell’s Paradox:
-> “Does the set of all sets that do not contain themselves… contain itself?” Try to see how something as innocent as “the set of all sets” can lead to paradoxes (contradictions).
-> This puzzle forced mathematicians to refine the axioms of set theory.
+| Russell’s Paradox: |
+|---|
+| <blockquote class="quotes"> Does the set of all sets that do not contain themselves… contain itself? </blockquote> |
+| Try to see how something as innocent as “the set of all sets” can lead to paradoxes (contradictions). |
+| This puzzle forced mathematicians to refine the axioms of set theory. |
 
 
 # 🛠 Why Emergence?
@@ -158,8 +157,8 @@ width= 200 align="right">
   - Then extend into new conceptual realms like “negative numbers,” “fractions,” and “infinities”
   — All from an initial drive to count and compare.
 
-> [!IMPORTANT]   
-> When you assemble LEGO bricks into a house, where exactly does the house exist? Disassemble the bricks and the “house” vanishes. This is an analogy for emergent structures: the “house” emerges from how the bricks are arranged, yet has no independent existence beyond them. This illustrates how emergent structures, while they have distinct properties, are not independent of their components.
+| When you assemble LEGO bricks into a house, where exactly does the house exist? Disassemble the bricks and the “house” vanishes. This is an emergent structures: the “house” emerges from how the bricks are arranged, yet has no independent existence beyond them. This illustrates how emergent structures, while they have distinct properties, are not independent of their components. |
+|------| 
 
 ![When you put the lego pieces back, where does the house go?](https://imgs.xkcd.com/comics/lego.png)
 
@@ -169,22 +168,14 @@ If you want to investigate these next topics now, you may find some surprising i
 
 ### Practice Basic Proof Techniques
 - Direct proof, contradiction, induction.
-> [!CAUTION]
-> Prove that there are infinitely many primes (Euler’s or Euclid’s argument).
 
 ### Study Axiomatic Systems
 - Peano Axioms (for natural numbers), Euclid’s postulates (for geometry).
-> [!CAUTION]
-> Which Euclidean axiom fails on a curved surface?
 
 ### Explore Foundational Paradoxes
 - Russell’s Paradox, Zeno’s Paradoxes, Hilbert’s Grand Hotel.
-> [!CAUTION]
-> “If a hotel has infinitely many rooms and they’re all full, can you still fit more guests?”
 
 ###  Reflect on Counting vs. Infinity
-> [!CAUTION]
-> “Are there ‘more’ real numbers than integers?” (Cantor’s diagonal argument.)
 
 
 
@@ -192,12 +183,14 @@ If you want to investigate these next topics now, you may find some surprising i
 
 Mathematics, from the fundamentals up, is a living tree. Roots growing deeper into axioms and philosophy, branches spreading outward into new theories and practical discoveries.
 
-> $\color{#009900}\text{“We are what we repeatedly do.”}$     
-> – Attributed to Aristotle 
+<blockquote class="quotes">
+ $\color{#009900}\text{“We are what we repeatedly do.”}
+   
+ – Attributed to Aristotle 
+</blockquote>
 
 
-> [!TIP]
-> Additional Reading & Links
+> Additional Readings
 > *  Ian Stewart & David Tall, The Foundations of Mathematics
 > *  The book of Mathematics, akai publisher 
 > *  [Russell’s Paradox Explanation](https://en.wikipedia.org/wiki/Russell%27s_paradox)
