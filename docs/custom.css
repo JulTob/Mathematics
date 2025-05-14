@@ -102,3 +102,7 @@ code {
   color: gold !important;
 }
 
+
+table, th, td {
+    background-color: black;
+    } 
