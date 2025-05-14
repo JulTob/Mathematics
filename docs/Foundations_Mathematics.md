@@ -54,39 +54,21 @@ Consider the Fibonacci sequence. Starting with two numbers (0 and 1), a simple r
 
 
 # Fibonacci Animation
-# Fibonacci with Processing.js
+<div id="p5-canvas"></div>
 
-This example draws the first 10 Fibonacci “squares”:
+<script>
+  new p5((sketch) => {
+    sketch.setup = function() {
+      let canvas = sketch.createCanvas(400, 300);
+      canvas.parent('p5-canvas');
+    };
 
-<div>
-  <!-- the canvas will size itself to whatever you put in size() -->
-  <canvas id="fibCanvas"></canvas>
-</div>
-
-<script type="application/processing" target="fibCanvas">
-// compute Fibonacci numbers
-int N = 10;
-int[] f = new int[N];
-
-void setup() {
-  size(400, 400);      // canvas size
-  f[0] = 1; f[1] = 1;
-  for (int i = 2; i < N; i++) {
-    f[i] = f[i-1] + f[i-2];
-  }
-  noLoop();            // draw only once
-}
-
-void draw() {
-  background(30);
-  int x = 0;
-  for (int i = 0; i < N; i++) {
-    int s = f[i] * 10;   // scale factor
-    fill(200, 100, 50, 200);
-    rect(x, height - s, s, s);
-    x += s;
-  }
-}
+    sketch.draw = function() {
+      sketch.background(30);
+      sketch.fill(255);
+      sketch.ellipse(sketch.mouseX, sketch.mouseY, 50, 50);
+    };
+  });
 </script>
 
 
