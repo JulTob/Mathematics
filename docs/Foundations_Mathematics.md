@@ -51,11 +51,7 @@ width = 200 align="right">](https://youtu.be/JbhBdOfMEPs)
 
 🏛️ In a linguistic sense, mathematical nouns (like numbers) actually come from mathematical verbs (like counting). “Two” is meaningless without the act of counting. This interplay makes math both an inventive act (choosing how we formalize counting) and a discovering act (once we set the rules, certain truths become inevitable).
 
-Consider the Fibonacci sequence. Starting with two numbers (0 and 1), a simple rule (each number is the sum of the two preceding ones) generates a sequence that appears in nature and art. Here’s a small Python snippet to generate it:
-
-
-# Fibonacci 
-<iframe src="assets/fib.html" width="600" height="400" style="border:none;"></iframe>
+<iframe src="assets/trig.html" width="600" height="400" style="border:none;"></iframe>
 
 🪜 An $\color{#8B3}\text{Abstraction layer}$ is the conceptualization of a set of elements that conform an estructure without considering the building blocks of these elements. As one would conceptualize a wall as a set of bricks, without worrying if those bricks are ceramic or concrete. What determines a wall is not only the bricks, but their position and the binds of the mortar that ties them together.
 
