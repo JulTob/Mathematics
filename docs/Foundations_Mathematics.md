@@ -54,21 +54,7 @@ Consider the Fibonacci sequence. Starting with two numbers (0 and 1), a simple r
 
 
 # Fibonacci Animation
-<div id="my-animation"></div>
-<script>
-new p5((sketch) => {
-  sketch.setup = function() {
-    let canvas = sketch.createCanvas(400, 400);
-    canvas.parent('my-animation');
-    };
-
-  sketch.draw = function() {
-      sketch.background(220);
-      sketch.ellipse(200, 200, 100, 100);
-      };
-  });
-
-</script>
+<script src="assets/sketch.js"></script>
 
 
 
