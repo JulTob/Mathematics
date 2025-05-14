@@ -60,8 +60,18 @@ B
 <script src="/assets/sketch.js"></script>
 C
 <iframe src="http://p5js.org/test/embed.html" width="600px" height="400px"></iframe>
+
 D
 
+<script type="text/p5">
+function setup() {
+  createCanvas(100, 100);
+}
+
+function draw() {
+  background(255, 0, 200);
+}
+</script>
 
 🪜 An $\color{#8B3}\text{Abstraction layer}$ is the conceptualization of a set of elements that conform an estructure without considering the building blocks of these elements. As one would conceptualize a wall as a set of bricks, without worrying if those bricks are ceramic or concrete. What determines a wall is not only the bricks, but their position and the binds of the mortar that ties them together.
 
