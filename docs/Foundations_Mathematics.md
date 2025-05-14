@@ -1,4 +1,3 @@
-<script src="//toolness.github.io/p5.js-widget/p5-widget.js"></script>
 
 # 🏗 Math Fundamentals
 
@@ -56,6 +55,7 @@ Consider the Fibonacci sequence. Starting with two numbers (0 and 1), a simple r
 
 
 # Fibonacci Animation
+<script src="//toolness.github.io/p5.js-widget/p5-widget.js">
 A
 <script type="text/p5">
 function setup() {
@@ -83,6 +83,7 @@ function setup() {
 function draw() {
   background(255, 0, 200);
 }
+</script>
 </script>
 
 E
