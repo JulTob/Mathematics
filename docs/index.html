@@ -1,52 +1,48 @@
 <!DOCTYPE html>
+
 <html>
-<head>
-  <meta charset="utf-8">
-  <title>Mathematics</title>
+  <head>
+    <title>Mathematics</title>
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify/themes/dark.css">
+    <link rel="stylesheet" href="custom.css">
+    </head>
+  <body>
+    <div id="app"></div>
 
-  <!-- 1) Theme & your custom CSS -->
-  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify/themes/dark.css">
-  <link rel="stylesheet" href="custom.css">
+```
+<!-- Docsify core -->
+<script src="https://cdn.jsdelivr.net/npm/docsify@4"></script>
+<!-- MathJax engine -->
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<!-- Docsify MathJax plugin -->
+<script src="https://cdn.jsdelivr.net/npm/docsify-latex@0"></script>
 
-  <!-- 2) Any runtimes your pages NEED -->
-  <script src="https://cdn.jsdelivr.net/npm/p5@1.4.0/lib/p5.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/processing.js/1.6.6/processing.min.js"></script>
+<script>
+  window.$docsify = {
+    loadSidebar: 'sidebar.md',  // we explicitly use "sidebar.md"
+    auto2top: true,
+    name: 'Mathematics Notes',
+    subMaxLevel: 2,
+    sidebarDisplayLevel: 1,
+    hideSidebar: false,
 
-  <!-- 3) MathJax + Docsify-LaTeX -->
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/docsify-latex@0"></script>
-
-  <!-- 4) Docsify config (must come BEFORE docsify.js) -->
-  <script>
-    window.$docsify = {
-      name: 'Mathematics Notes',
-      loadSidebar: 'sidebar.md',
-      auto2top: true,
-      subMaxLevel: 2,
-      sidebarDisplayLevel: 1,
-      hideSidebar: false,
-
-      // Allow inline <script> for Processing.js or p5 sketches
-      sanitize: false,
-
-      latex: {
-        inlineMath: [['$', '$'], ['\\(', '\\)']],
-        displayMath: [['$$', '$$'], ['\\[', '\\]']]
-      }
-    };
-
-    // Re-run MathJax on each page change
-    window.$docsify.plugins = [
-      function(hook) {
-        hook.doneEach(() => MathJax.typesetPromise());
+  latex: {
+    inlineMath: [['$', '$'], ['\\(', '\\)']],
+    displayMath: [['$$', '$$'], ['\\[', '\\]']]
+    }
+  };
+  window.$docsify.plugins = [
+    function(hook, vm) {
+      hook.doneEach(() => { MathJax.typesetPromise(); });
       }
     ];
-  </script>
 
-  <!-- 5) Docsify engine (only once!) -->
-  <script src="https://cdn.jsdelivr.net/npm/docsify@4"></script>
-</head>
-<body>
-  <div id="app"></div>
+  </script>
+<!-- Docsify main engine -->
+<script src="https://cdn.jsdelivr.net/npm/docsify/lib/docsify.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/p5@1.4.0/lib/p5.min.js"></script>
+<script src="https://cdn.jsdelivr.net/processing.js/1.6.6/processing.min.js"></script>
+
 </body>
 </html>
