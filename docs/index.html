@@ -3,44 +3,55 @@
 <html>
   <head>
     <title>Learning Mathematics</title>
-    
     <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify/themes/dark.css">
     <link rel="stylesheet" href="custom.css">
 
-    <!-- p5.js globally -->
-    <script src="https://cdn.jsdelivr.net/npm/p5@1.9.0/lib/p5.min.js"></script>
+
+
+<!-- p5.js globally -->
+<script src="https://cdn.jsdelivr.net/npm/p5@1.9.0/lib/p5.min.js"></script>
 
     </head>
   <body>
     <div id="app"></div>
 
-    <!-- Docsify core -->
-    <script src="https://cdn.jsdelivr.net/npm/docsify@4"></script>
-    <!-- MathJax + LaTeX engine -->
-    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/docsify-latex@0"></script>
+<!-- Docsify core -->
+<script src="https://cdn.jsdelivr.net/npm/docsify@4"></script>
+<!-- MathJax engine -->
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<!-- Docsify MathJax plugin -->
+<script src="https://cdn.jsdelivr.net/npm/docsify-latex@0"></script>
 
-    <!-- p5.js Widget (Optional so far) -->
-    <script src="//toolness.github.io/p5.js-widget/p5-widget.js"></script></body>
 
 <script>
   window.$docsify = {
-    name: 'Mathematics',
     loadSidebar: 'sidebar.md',  // we explicitly use "sidebar.md"
     auto2top: true,
+    name: 'Mathematics',
     subMaxLevel: 2,
     sidebarDisplayLevel: 1,
     hideSidebar: false,
-    latex: {
-        inlineMath: [['$', '$'], ['\\(', '\\)']],
-        displayMath: [['$$', '$$'], ['\\[', '\\]']]
-        }
-    };
-  window.$docsify.plugins = [
-      function(hook, vm) {
-          hook.doneEach(() => { MathJax.typesetPromise(); });
-          }  
-      ];
-  </script>
 
+  latex: {
+    inlineMath: [['$', '$'], ['\\(', '\\)']],
+    displayMath: [['$$', '$$'], ['\\[', '\\]']]
+    }
+  };
+  window.$docsify.plugins = [
+    function(hook, vm) {
+      hook.doneEach(() => { MathJax.typesetPromise(); });
+      }
+    ];
+  </script>
+<script src="https://cdn.jsdelivr.net/npm/docsify/lib/docsify.min.js"></script>
+
+<!-- Docsify main engine -->
+<script src="https://cdn.jsdelivr.net/npm/docsify/lib/docsify.min.js"></script>
+
+<!-- p5.js CDN -->
+    <script src="//toolness.github.io/p5.js-widget/p5-widget.js"></script></body>
 </html>
+
+
+
+
