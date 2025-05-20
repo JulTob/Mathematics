@@ -1,2 +1,5 @@
 - [🏠 Home](README.md)
 - [🏗 Foundations of Mathematics](Foundations_Mathematics.md)
+- Algebra
+  - Vector Spaces
+    - [✏️🗒️](Excercise/Vector_Spaces.md)
