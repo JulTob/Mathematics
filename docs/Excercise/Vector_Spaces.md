@@ -2,7 +2,9 @@
 
 A particle at point **P = (1, 1)** is translated by vector **v = (2, -1)**.
 
++++
 ++
++
 
 <canvas id="vectorSpaceCanvas" width="400" height="400"></canvas>
 
