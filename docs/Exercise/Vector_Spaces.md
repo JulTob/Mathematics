@@ -8,15 +8,4 @@ A particle at point **P = (1, 1)** is translated by vector **v = (2, -1)**.
   loading="lazy">
   </iframe>
     
-*
 
--
-
-+
-
-
-😀
-
-🤬
-
-😬
