@@ -30,14 +30,36 @@ let circleRadius = 75;
 function setup() {
     createCanvas(400, 400);
     angleMode(DEGREES);
-    points = [
-        new Point(0, 0),
-        new Point(1, 0),
-        new Point(0, 1),
-        new Point(1, 1)
-        ];
+    for (let i = 0; i <= N; i++) 
+    for (let j = 0; j <= N; j++) 
+        points.push(new Point(i, j));
     }
+      
+function drawAxes () {
+  stroke(0);
+  line(-width / 2, 0,  width / 2, 0);   // x-axis
+  line(0, -height / 2, 0,  height / 2); // y-axis
+}
 
+/* helper: points + labels */
+function drawLatticePoints () {
+  fill(40, 120, 255);   // blue dots
+  stroke(0);
+
+  points.forEach(pt => {
+    circle(pt.x * UNIT, pt.y * UNIT, 10);
+
+    // label (flip text back upright)
+    push();
+      scale(1, -1);
+      noStroke();
+      fill(0);
+      textSize(12);
+      text(`(${pt.x},${pt.y})`, pt.x * UNIT + 6, -pt.y * UNIT - 6);
+    pop();
+  });
+}
+      
 function draw() {
   background(245);
   // Set angle based on frameCount, and display current value
