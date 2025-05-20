@@ -19,20 +19,27 @@
 </head>
 <body>
     <script>
+
+const UNIT = 60;          // 1 unit = 60 px  (change to zoom)
+let points = [];
+      
 let circleX = 200;
 let circleY = 150;
 let circleRadius = 75;
 
 function setup() {
-  createCanvas(400, 400);
-  angleMode(DEGREES);
-  describe(
-    'Animated demonstration of a point moving around the unit circle, together with the corresponding sine and cosine values moving along their graphs.'
-  );
-}
+    createCanvas(400, 400);
+    angleMode(DEGREES);
+    points = [
+        new Point(0, 0),
+        new Point(1, 0),
+        new Point(0, 1),
+        new Point(1, 1)
+        ];
+    }
 
 function draw() {
-  background(20);
+  background(245);
   // Set angle based on frameCount, and display current value
   let angle = frameCount % 360;
   translate(circleX, circleY);
