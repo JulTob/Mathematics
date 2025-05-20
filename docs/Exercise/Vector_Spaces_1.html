@@ -44,21 +44,7 @@ function drawAxes () {
 /* helper: points + labels */
 function drawLatticePoints () {
   fill(40, 120, 255);   // blue dots
-  stroke(0);
-
-  points.forEach(pt => {
-    circle(pt.x * UNIT, pt.y * UNIT, 10);
-
-    // label (flip text back upright)
-    push();
-      scale(1, -1);
-      noStroke();
-      fill(0);
-      textSize(12);
-      text(`(${pt.x},${pt.y})`, pt.x * UNIT + 6, -pt.y * UNIT - 6);
-    pop();
-  });
-}
+  }
       
 function draw() {
   background(245);
