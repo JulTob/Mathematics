@@ -43,13 +43,11 @@ function draw() {
   const pointX =  circleRadius * cos(angle);
   const pointY =  circleRadius * sin(angle);
 
-
-
   stroke(255); 
-  line(0, 0, px, py);
+  line(0, 0, pointX, pointY);
   noStroke(); 
   fill(255, 120, 0); 
-  circle(px, py, 10);
+  circle(pointX, pointY, 10);
   }
 
 </script>
