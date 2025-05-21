@@ -20,36 +20,262 @@
 <body>
     <script>
 
-const UNIT = 60;          // 1 unit = 60 px  (change to zoom)
-let points = [];
-      
-let circleX = 200;
-let circleY = 150;
-let circleRadius = 75;
+class Styles { 
+    constructor(fill, stroke, strokeWeight) {
+        this.fill = fill     ?? Styles.randomFill();
+        this.stroke = stroke ?? Styles.StrokeColor(this.fill);
+        this.strokeWeight = strokeWeight  ?? 3;
+        }
+    // Pick a random HSB fill
+    static randomFill() {
+        colorMode(HSB, 360, 100, 100, 1);
+        return color(random(0, 360), 100, 100, 1);
+        }
+    static StrokeColor(fillColor) {
+        let h = hue(fillColor);
+        let s = saturation(fillColor);
+        let b = brightness(fillColor);
+        return color(h, s, b * 0.8, 0.5);
+        }
+    static lightGrayGrid() {
+        return new Styles(
+            color(0, 0, 100), // fill: white
+            color(0, 0, 60, 0.5), // stroke: Silver 
+            1  // stroke weight
+            )
+        }
+    static ColorWheel(angle = 360, sat = 100, bri = 80, alpha = 1) {
+        let hueValue = (-angle + 180 ) % 360;
+        let fill = color(hueValue, sat, bri, alpha);
+        let stroke = Styles.StrokeColor(fill);
+        return new Styles(fill, stroke, 3)
+        }
 
-function setup() {
-    createCanvas(400, 400);
-    angleMode(DEGREES);
+    apply() {
+      fill(this.fill);                 // set the current fill color
+      stroke(this.stroke);             // set the current stroke color
+      strokeWeight(this.strokeWeight); // set the current stroke thickness
+      } /*Use:
+          let s = new Styles(); // holds fill and stroke values
+          s.apply();
+          ellipse(100, 100, 40);  // drawn with the styles defined in `s`
+          */
+
+    }
+  
+// Point type
+class Point {
+    constructor(x, y, rad, styles) {
+        this.x = x;
+        this.y = y;
+        this.rad = rad ?? 5;
+        this.styles = styles ?? new Styles(); 
+          // Default styles if none given
+        }
+    draw(plot) {
+      let sx = plot.mapX(this.x);
+      let sy = plot.mapY(this.y);
+      push();
+      this.styles.apply();
+      ellipse(sx, sy, this.rad * 2);
+      pop();
+      }
+    }
+
+   
+
+class Vector {
+  constructor(
+    to = new Point(1, 0), 
+    from = new Point(0, 0),
+    styles = null) {
+    this.origin = from;
+    this.end    = to;
+    let dx = this.end.x - this.origin.x;
+    let dy = this.end.y - this.origin.y;
+    let angleRad = atan2(dy, dx);
+    let angleDeg = degrees(angleRad)
+    this.styles = styles ?? Styles.ColorWheel(angleDeg);
+    }
+
+  // Create from modulus and angle (in degrees)
+  static newPolar(
+    mod, 
+    angleDeg, 
+    origin = new Point(0, 0), 
+    styles = null) {
+    let angleRad = radians(angleDeg);
+    let dx = mod * cos(angleRad);
+    let dy = mod * sin(angleRad);
+    let to = new Point(origin.x + dx, origin.y + dy);
+    return new Vector(to, origin, styles);
+    }
+
+  // Get direction vector (end - origin)
+  get direction() {
+    return p5.Vector.sub(this.end, this.origin);
+    }
+
+  // Length / magnitude
+  get magnitude() {
+    return this.direction.mag();
+    }
+
+  // Scale vector from origin
+  scale(factor) {
+    let dir = this.direction.mult(factor);
+    this.to = new Point(this.from.x + dir.x, this.from.y + dir.y);
     }
       
+  // Translate vector by adding another vector's direction
+  add(other) {
+    let delta = other.direction;
+    this.to.x += delta.x;
+    this.to.y += delta.y;
+    }
+      
+  // Translate vector by subtracting another vector's direction
+  subtract(other) {
+    let delta = other.direction;
+    this.to.x -= delta.x;
+    this.to.y -= delta.y;
+    }
+      
+  // Draw vector as an arrow
+  draw(plot) {
+    let ox = plot.mapX(this.origin.x);
+    let oy = plot.mapY(this.origin.y);
+    let tx = plot.mapX(this.end.x);
+    let ty = plot.mapY(this.end.y);
 
+    
+    push();
+    this.styles.apply();
+    line(ox, oy, tx, ty);
+
+    // Arrowhead
+    let angle = atan2(ty - oy, tx - ox);
+    let size = 10;
+    translate(tx, ty);
+    rotate(angle);
+    triangle(-size, -size / 3, -size, size / 3, 0, 0);
+    pop();
+    }
+  }
+
+  
+// --- 2) Our "graph" container: holds points and draws axes
+
+class Plot {
+    constructor(
+      domain = [-10, 10], 
+      range = [-10, 10], 
+      step = 1,
+      points = [], 
+      vectors = [],
+      styles = null
+      ) {
+        this.points = points;     
+            // array of Points
+        this.vectors = vectors; 
+            // array of Vectors
+        this.domain = domain;     
+            // [minX, maxX]
+        this.range = range;       
+            // [minY, maxY]
+        this.margin = 40;         
+            // space around edges
+        this.step = step; 
+            // Spacing between marks
+        this.styles = styles ?? Styles.lightGrayGrid();
+        }
+      mapX(x) {
+          return map(  x,               
+            this.domain[0], this.domain[1], 
+            this.margin,    width - this.margin);
+          }
+      mapY(y) {
+          return map(  y, 
+              this.range[0],         this.range[1], 
+              height - this.margin,  this.margin); // invert y
+          }
+    drawAxes() {
+        push();
+        this.styles.apply();
+        // Origin
+        strokeWeight(2);
+        const sx0 = this.mapX(0);
+        const sy0 = this.mapY(0);
+        line(this.mapX(this.domain[0]), sy0, this.mapX(this.domain[1]), sy0); 
+            // x-axis
+        line(sx0, this.mapY(this.range[0]), sx0, this.mapY(this.range[1]));   
+            // y-axis
+      
+        // draw Ticks
+        strokeWeight(1);
+        const size = 5; // tick length
+        for (let x = this.domain[0];   x <= this.domain[1]; x += this.step) {
+        for (let y = this.range[0];   y <= this.range[1];   y += this.step) {
+            let sx = this.mapX(x);
+            let sy = this.mapY(y); 
+              if (Math.abs(x) < 1e-6 && Math.abs(y) < 1e-6) continue;                     line(sx - size / 2, sy, 
+                 sx + size / 2, sy); // horizontal arm
+            line(sx, sy - size / 2, 
+                 sx, sy + size / 2); // vertical arm
+            }
+            }
+        pop();
+      }
+    drawPoints() {
+        for (let point of this.points) {
+            point.draw(this);
+            }
+        }
+    drawVectors() {
+      for (let vector of this.vectors) {
+        vector.draw(this);
+      }
+    }
+    render() {
+      this.drawAxes();
+      this.drawPoints();
+      this.drawVectors();
+      }
+  }
+
+function setup() {
+  createCanvas(600, 600);
+  colorMode(HSB, 360, 100, 100, 1);
+  let vx = new Vector(new Point(1,0));
+  let vy = new Vector(new Point(0,1));
+  let vnx = new Vector(new Point(-1,0));
+  let vny = new Vector(new Point(0,-1));
+
+  const n = 36; // number of vectors
+  const radius = 6;
+  const origin = new Point(0, 0);
+  let points = [origin];
+  let vectors = [vx, vnx, vy, vny];
+
+  for (let i = 0; i < n; i++) {
+    let angleDeg = i * (360 / n);
+    let vec = Vector.newPolar(radius, angleDeg, origin);
+    vectors.push(vec);
+    //points.push(vec.end); // add tip of the vector
+  }
+
+  plot = new Plot(
+    [-radius - 2, radius + 2],
+    [-radius - 2, radius + 2],
+    1,
+    points,
+    vectors
+  );
+}
+  
 function draw() {
-  background(20);
-  // Set angle based on frameCount, and display current value
-  let angle = frameCount % 360;
-  translate(circleX, circleY);
-  stroke(180);
-  noFill(); 
-  circle(0, 0, 2 * circleRadius);
-  // Draw moving points
-  const pointX =  circleRadius * cos(angle);
-  const pointY =  circleRadius * sin(angle);
-
-  stroke(255); 
-  line(0, 0, pointX, pointY);
-  noStroke(); 
-  fill(255, 120, 0); 
-  circle(pointX, pointY, angle %30);
+  background(0, 0, 95);
+  plot.render();
   }
 
 </script>
