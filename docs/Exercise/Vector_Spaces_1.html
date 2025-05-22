@@ -19,7 +19,6 @@
 </head>
 <body>
     <script>
-
 class Styles { 
     constructor(fill, stroke, strokeWeight) {
         this.fill = fill     ?? Styles.randomFill();
@@ -171,14 +170,11 @@ class Plot {
       domain = [-10, 10], 
       range = [-10, 10], 
       step = 1,
-      points = [], 
-      vectors = [],
+      shapes = [], 
       styles = null
       ) {
-        this.points = points;     
-            // array of Points
-        this.vectors = vectors; 
-            // array of Vectors
+        this.shapes = shapes;     
+            // array of type.Draw() shapes
         this.domain = domain;     
             // [minX, maxX]
         this.range = range;       
@@ -189,12 +185,12 @@ class Plot {
             // Spacing between marks
         this.styles = styles ?? Styles.lightGrayGrid();
         }
-      mapX(x) {
+    mapX(x) {
           return map(  x,               
             this.domain[0], this.domain[1], 
             this.margin,    width - this.margin);
           }
-      mapY(y) {
+    mapY(y) {
           return map(  y, 
               this.range[0],         this.range[1], 
               height - this.margin,  this.margin); // invert y
@@ -226,22 +222,24 @@ class Plot {
             }
         pop();
       }
-    drawPoints() {
-        for (let point of this.points) {
-            point.draw(this);
+    add(shape) {
+      if (typeof shape?.draw === 'function') {
+        this.shapes.push(shape);
+        } 
+      else {
+        console.warn("Plot.add() received a non-drawable object:", shape);
+        }
+      }
+    drawShapes() {
+        for (let shape of this.shapes) {
+            shape.draw(this);
             }
         }
-    drawVectors() {
-      for (let vector of this.vectors) {
-        vector.draw(this);
-      }
-    }
     render() {
       this.drawAxes();
-      this.drawPoints();
-      this.drawVectors();
+      this.drawShapes();
       }
-  }
+    }  
 
 function setup() {
   createCanvas(600, 600);
@@ -252,15 +250,14 @@ function setup() {
   let vny = new Vector(new Point(0,-1));
 
   const n = 36; // number of vectors
-  const radius = 6;
+  const radius = 1;
   const origin = new Point(0, 0);
-  let points = [origin];
-  let vectors = [vx, vnx, vy, vny];
+  let shapes = [origin, vx, vnx, vy, vny];
 
   for (let i = 0; i < n; i++) {
     let angleDeg = i * (360 / n);
-    let vec = Vector.newPolar(radius, angleDeg, origin);
-    vectors.push(vec);
+    let vec = Vector.newPolar(i/36, angleDeg, origin);
+    shapes.push(vec);
     //points.push(vec.end); // add tip of the vector
   }
 
@@ -268,8 +265,7 @@ function setup() {
     [-radius - 2, radius + 2],
     [-radius - 2, radius + 2],
     1,
-    points,
-    vectors
+    shapes,
   );
 }
   
@@ -277,7 +273,7 @@ function draw() {
   background(0, 0, 95);
   plot.render();
   }
-
+      
 </script>
 </body>
 </html>
