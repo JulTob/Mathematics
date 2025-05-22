@@ -1,0 +1,131 @@
+body {
+  font-family: sans-serif;
+  background: #101820;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem;
+}
+
+.slide {
+  border: 1px solid #444;
+  padding: 2rem;
+  border-radius: 10px;
+  background: #1a1a2e;
+  box-shadow: 0 0 20px #0ff3;
+}
+
+#mathDisplay {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  transition: transform 0.3s ease;
+}
+
+.controls {
+  margin-top: 1rem;
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+input,
+select,
+button {
+  padding: 0.4rem 0.7rem;
+  font-size: 1rem;
+}
+
+#feedback {
+  margin-top: 1rem;
+  color: #0ff;
+}
+
+select,
+input[type="number"],
+button {
+  background-color: #111;
+  color: white;
+  border: 1px solid #333;
+  border-radius: 6px;
+  padding: 0.5rem 0.8rem;
+  font-size: 1rem;
+  margin: 0.2rem;
+  transition: all 0.2s;
+  font-family: "Orbitron", monospace;
+  font-weight: 500;
+}
+
+select:hover,
+input:hover,
+button:hover {
+  border-color: #0ff;
+  transform: scale(1.03);
+}
+
+select option {
+  background-color: #111;
+  color: white;
+}
+
+/* Neon option colors for operation selector */
+#operationSelector option[value="+"] {
+  color: cyan;
+}
+#operationSelector option[value="-"] {
+  color: red;
+}
+#operationSelector option[value="×"] {
+  color: lime;
+}
+#operationSelector option[value="÷"] {
+  color: violet;
+}
+
+/* Neon color for positive/negative numbers dynamically (done in JS below) */
+
+button {
+  background: #222;
+  color: white;
+  border: 2px solid #0ff;
+  border-radius: 8px;
+  padding: 0.6rem 1rem;
+  font-family: "Share Tech Mono", monospace;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #0ff;
+  color: #111;
+  transform: scale(1.05);
+  box-shadow: 0 0 10px #0ff;
+}
+
+select {
+  background: #222;
+  color: white;
+  border: 2px solid #0ff;
+  border-radius: 8px;
+  padding: 0.6rem 1rem;
+  font-family: "Share Tech Mono", monospace;
+  font-size: 1.5rem;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+select:hover {
+  background-color: #0ff;
+  color: #111;
+  transform: scale(1.05);
+  box-shadow: 0 0 10px #0ff;
+}
+
+mo {
+  font-family: "Share Tech Mono", monospace;
+}
+mn {
+  font-family: "Share Tech Mono", monospace;
+}

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>LightWork</title>
+  <script src="https://unpkg.com/mathjs@14.5.0/lib/browser/math.js"></script><link rel="stylesheet" href="./style.css">
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<div id="slide-container" class="slide">
+  <div id="mathDisplay"></div>
+  <div id="operationOverlay" 
+       style="font-size: 1.5em; text-align: center; margin: 10px; visibility: hidden;"></div>
+
+  <div class="controls">
+    <select id="operationSelector">
+      <option value="+">+</option>
+      <option value="-">−</option>
+      <option value="*">×</option>
+      <option value="/">÷</option>
+    </select>
+    <input type="number" id="numberSelector" step="1">
+    <div class="Actions">
+      <button id="submitBtn">Apply</button>
+      <button onclick="reset()">Reset</button>
+      <button id="undoBtn">Undo</button>
+    </div>
+  </div>
+
+  <p id="feedback"></p>
+</div>
+
+<!-- MathJax -->
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<!-- Anime.js -->
+<script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js"></script>
+<!-- partial -->
+  <script  src="./script.js"></script>
+
+</body>
+</html>
