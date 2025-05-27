@@ -1,10 +1,16 @@
 from math import pow
+from math import isclose
 
 def algebraic(val):
     if isinstance(val, Expr):
         return val
     return Constant(val)
     
+def numeric_value(x):
+    while isinstance(x, Constant):
+        x = x.value
+    return x
+
 class Expr:
     def simplify(self):
         return self
@@ -64,14 +70,17 @@ def Cons(Expr):
     return Constant(Expr)
     
 class Constant(Expr):
-    def __init__(self, value):
-        self.value = value
+    def __init__(self, value, img=None):
+        if isinstance(value, Constant): 
+            self.value = Constant(value.value)
+        else: self.value = value
+       # self.imaginary = img
 
     def __str__(self):
-        if self.imaginary == None:
+        #if self.imaginary == None:
             return str(self.value)
-        else:
-            return str(self.value) + "+" + str(self.imaginary) + "𝚒"
+        #else:
+        #    return str(self.value) + "+" + str(self.imaginary) + "𝚒"
 
     def evaluate(self, env={}):
         return self.value
@@ -265,12 +274,19 @@ class Div(Expr):
         self.denominator = denominator
 
     def simplify(self):
-        numerator = self.numerator.simplify()
-        denominator = self.denominator.simplify()
-        if isinstance(numerator, Constant) and isinstance(denominator, Constant):
-            return Constant(numerator.value / denominator.value)
-        return Div(numerator, denominator)
-        
+        n, d = self.numerator.simplify(), self.denominator.simplify()
+        if isinstance(n, Constant) and isinstance(d, Constant):
+            num = numeric_value(n)
+            den = numeric_value(d)
+            if den == 0:
+                raise ZeroDivisionError("Division by zero!")
+            if num % den == 0:
+                return Constant(num // den)
+            return Div(Constant(num), Constant(den))
+        if isinstance(d, Constant) and numeric_value(d) == 1:
+            return n
+        return Div(n, d)
+   
     def substitute(self, var_name, replacement):
         return Div(self.numerator.substitute(var_name, replacement),
                    self.denominator.substitute(var_name, replacement))
@@ -279,7 +295,13 @@ class Div(Expr):
         return self.numerator.evaluate(env) / self.denominator.evaluate(env)
 
     def __str__(self):
-        return f"({self.numerator})÷({self.denominator})"
+        num = self.numerator
+        den = self.denominator
+        if isinstance(num, Constant): n = f"{num}"
+        else: n = f"({num})"
+        if isinstance(den, Constant): d = f"{den}"
+        else: d = f"[{den}]"
+        return f"{num}:{den}"
 
 class Root(Expr):
     def __init__(self, radicand, index=2):
@@ -287,13 +309,38 @@ class Root(Expr):
         self.index = index
 
     def simplify(self):
-        radicand = self.radicand.simplify()
-        if isinstance(radicand, Constant):
-            val = pow(radicand.value, 1/self.index)
-            if val.is_integer():
-                return Constant(int(val))
-        return Root(radicand, self.index)
+        r = self.radicand.simplify()
+        n = self.index
 
+        # Rationalize for 1st and 0th roots
+        if n == 1:
+            return r
+        if n == 0:
+            raise ValueError("0th root is undefined")
+        
+        # Root of constant: handle sign and special cases
+        if isinstance(r, Constant):
+            val = r.value
+            if val < 0:
+                # Square root of negative: introduce i
+                if n % 2 == 0:
+                    return Mul(Root(Constant(-val), n), Variable("i")).simplify()
+                # Odd roots of negative: real result
+                elif n % 2 == 1:
+                    return Constant(-((-val) ** (1/n)))
+            # Perfect roots only (symbolic otherwise)
+            approx = val ** (1/n)
+            if isclose(approx, round(approx)):
+                return Constant(round(approx))
+            # stay symbolic otherwise
+        # Root of root: e.g. √(√2) = 2^{1/4}
+        if isinstance(r, Root):
+            return Root(r.radicand, r.index * n).simplify()
+        # x^{m/n} as root
+        if isinstance(r, Pow):
+            return Pow(r.base, Div(r.exponent, Constant(n))).simplify()
+        return Root(r, n)
+        
     def evaluate(self, env={}):
         return pow(self.radicand.evaluate(env), 1/self.index)
 
@@ -301,10 +348,16 @@ class Root(Expr):
         return Root(self.radicand.substitute(var_name, replacement), self.index)
         
     def __str__(self):
-        if self.index == 2:
-            return f"√{self.radicand}"
+        if isinstance(self.radicand, Constant):
+            if self.index == 2:
+                return f"√{self.radicand}"
+            else:
+                return f"[{self.index}√{self.radicand}]"
         else:
-            return f"{self.index}√{self.radicand}"
+            if self.index == 2:
+                return f"√({self.radicand})"
+            else:
+                return f"[{self.index}√({self.radicand})]"
 
 class Equation:
     def __init__(self, left, right):
@@ -515,7 +568,6 @@ def expand(expr):
     # 6) Leaf: Variable or Constant
     return expr
  
-        
 def extract_coeffs(expr, var_name):
     """Return a dict {degree: coefficient} for a polynomial in `var_name`,
     handling Neg(...) and negative constants and monomials."""
@@ -561,60 +613,71 @@ def extract_coeffs(expr, var_name):
 
 def solve_polynomial(expr: Expr, var_name: str) -> list[Expr]:
     """
-    Solve a univariate polynomial in var_name symbolically:
-      • Peel off any integer roots by synthetic division.
-      • Solve the remaining quadratic (or linear) exactly.
-      • Raise NotImplementedError for degree ≥ 3.
-    Returns a list of Expr roots (with multiplicities).
+    Solve a univariate polynomial in var_name.
+    - Factor completely.
+    - For each factor:
+        - Degree 1: solve exactly.
+        - Degree 2: solve exactly (quadratic formula, in radicals).
+        - Degree ≥3: leave as FormalRoot.
+    Returns a list of roots as Expr (including multiplicities).
     """
+    from collections import Counter
+
     # 1) Fully expand and simplify
     p = expand(expr).simplify()
-
-    # 2) Extract coefficients and build [a_n, a_{n-1}, …, a_0]
-    coeffs = extract_coeffs(p, var_name)
-    deg = max(coeffs)
-    arr = [coeffs.get(d, 0) for d in range(deg, -1, -1)]
-
-    # 3) Peel off integer roots
-    roots = []
-    linear_factors = []
-    cur = arr[:]  # mutable copy
-    while len(cur) > 1:
-        found = False
-        for r in divisors(cur[-1]):
-            q, rem = synthetic_division(cur, r)
-            if rem == 0:
-                # factor (λ - r) → (λ + (-r)) so root = r
-                roots.append(Constant(r))
-                linear_factors.append((1, -r))  # keeps track of deflation
-                cur = q
-                found = True
-                break
-        if not found:
-            break
-
-    # 4) Solve the leftover polynomial in cur
-    leftover_deg = len(cur) - 1
-    if leftover_deg == 0:
-        # constant remainder: nothing more to do
-        pass
-    elif leftover_deg == 1:
-        # a·λ + b = 0  ⇒  λ = -b/a
-        a, b = map(Constant, cur)
-        roots.append((-b / a).simplify())
-    elif leftover_deg == 2:
-        # a·λ² + b·λ + c = 0
-        a, b, c = map(Constant, cur)
-        Δ = (b*b - Constant(4)*a*c).simplify()
-        sqrtΔ = Root(Δ, 2).simplify()
-        two_a = Constant(2)*a
-        roots.append((( -b + sqrtΔ) / two_a).simplify())
-        roots.append((( -b - sqrtΔ) / two_a).simplify())
+    # 2) Factor
+    factored = factor_polynomial(p, var_name)
+    # 3) Flatten Mul tree into factors
+    if isinstance(factored, Mul):
+        factors = factored.factors
     else:
-        raise NotImplementedError(f"Symbolic solve for degree {leftover_deg} not implemented")
+        factors = [factored]
 
+    roots = []
+    for f in factors:
+        # Each factor should be monic in var_name, i.e. (ax + b), (ax^2 + bx + c), etc.
+        # If it's a Constant: ignore (unless it's 0)
+        if isinstance(f, Constant):
+            continue  
+            # only relevant for zero polynomial
+        # Extract coefficients
+        try:
+            coeffs = extract_coeffs(f, var_name)
+        except Exception:
+            # Non-polynomial, leave as formal root
+            roots.append(FormalRoot(f, varname=var_name))
+            continue
+
+        deg = max(coeffs)
+        arr = [coeffs.get(d, 0) for d in range(deg, -1, -1)]
+        arr = [Constant(x) for x in arr]     
+        # Degree 1: ax + b = 0
+        if deg == 1:
+            a, b = arr
+            a = algebraic(a)
+            b = algebraic(b)
+            root = Div(Constant(-b), Constant(a)).simplify()
+            roots.append(root)
+        # Degree 2: ax^2 + bx + c = 0
+        elif deg == 2:
+            a, b, c = arr
+            a = algebraic(a)
+            b = algebraic(b)
+            c = algebraic(c)
+            # Quadratic formula: (-b ± √(b²-4ac)) / (2a)
+            discriminant = Add(Mul(Constant(b), Constant(b)), Neg(Mul(Constant(4), a, c))).simplify()
+            sqrt_disc = Root(discriminant, 2).simplify()
+            denom = Mul(Constant(2), a).simplify()
+            roots.append(Div(Add(Neg(Constant(b)), sqrt_disc), denom).simplify())
+            roots.append(Div(Add(Neg(Constant(b)), Neg(sqrt_disc)), denom).simplify())
+        # Degree ≥ 3: formal root
+        else:
+            # For each root (multiplicity), use FormalRoot
+            multiplicity = coeffs.get(0, 1)  # Not always accurate, but...
+            # If the polynomial is reducible, degree will be 1 per linear, 2 per quad, ≥3 per factor
+            for i in range(deg):
+                roots.append(FormalRoot(f, which=i+1, varname=var_name))
     return roots
-
 
 def divisors(n):
     """Return all integer divisors (±) of n."""
@@ -818,6 +881,9 @@ class Matrix:
         Factor the characteristic polynomial and extract the linear roots.
         Returns a list of Constant roots (with multiplicity).
         """
+        """Return *all* roots (including unsolved formal ones)."""
+        charpoly = self.charpoly(var_name)
+        return solve_polynomial(charpoly, var_name)
         #    def eigenvalues(self, var_name="λ"):
         #cp = expand(self.charpoly(var_name)).simplify()
         #return solve_polynomial(cp, var_name)
@@ -837,7 +903,7 @@ class Matrix:
                         c = term.value
                 roots.append(Constant(-c))
         return roots
-
+        
     def algebraic_multiplicities(self, var_name="λ"):
         """
         Return a dict {eigenvalue: multiplicity}, where eigenvalue is a Constant.
@@ -848,6 +914,19 @@ class Matrix:
             mults[root] = mults.get(root, 0) + 1
         return mults
 
+class FormalRoot(Expr):
+    def __init__(self, poly, which=1, varname="x"):
+        self.poly = poly # the polynomial as Expr
+        self.which = which # which root (if multiple)
+        self.varname = varname
+    def __str__(self):
+        # Root number only for display
+        p = expand(self.poly).simplify()
+        suffix = f"_{self.which}"
+        return f"｛{self.varname}{suffix}:| ({p} = 0)｝"
+    def __repr__(self):
+        return str(self)
+    
 ########## TEST ###########
 x = Var("x")
 # Given your original algebra classes (Expr, Variable, Constant, Add, Mul, etc.)
@@ -1080,7 +1159,8 @@ for eigenval, multiplicity in mults.items():
     print(f"Eigenvalue λ = {eigenval}, algebraic multiplicity = {multiplicity}")
 
 A = Matrix([
-    [Var("t"),1, 1],
+#    [Var("t"),1, 1],
+    [2,1, 1],
     [0,2, 1],
     [1,1, 1]])
 print("A=")
@@ -1104,6 +1184,106 @@ for ev in evs:
 mults = A.algebraic_multiplicities("λ")
 for eigenval, multiplicity in mults.items():
     print(f"Eigenvalue λ = {eigenval}, algebraic multiplicity = {multiplicity}")
+print("="*7)
+x = Var("x")
+print("√2 stays as symbolic:", Root(Constant(2)).simplify())
+print("2÷3 stays as symbolic:", Div(Constant(2), Constant(3)).simplify())
+print("√-2 becomes i√2:", Root(Constant(-2)).simplify())
+print("√(x^2+1) stays formal:", Root(Add(Pow(x, Constant(2)), Constant(1))).simplify())
+print("√(√2):", Root(Root(Constant(2))).simplify())
+print("π is transcendental:", Variable("π"))
+print("2 + √3:", Add(Constant(2), Root(Constant(3))).simplify())
 
 
+# Formal unsolved root (eigenvalue of x^3 + x + 1 = 0)
+poly = Add(Pow(x, Constant(3)), x, Constant(1))
+formal_root = FormalRoot(poly)
+print("Unsolved cubic eigenvalue:", formal_root)
 # → [1, 3]
+
+x = Var("x")
+# Example 1: x^3 + x + 1 (irreducible cubic)
+poly1 = Add(Pow(x,Constant(3)), x, Constant(1))
+print("Roots for x^3 + x + 1 = 0:", solve_polynomial(poly1, "x"))
+# Output: [Root(x^3 + x + 1 = 0, x)]
+
+# Example 2: x^4 - 1 (factorable)
+poly2 = Add(Pow(x,Constant(4)), Neg(Constant(1)))
+print("Roots for x^4 - 1 = 0:", solve_polynomial(poly2, "x"))
+# Output: [1, -1, Root(x^2 + 1 = 0, x)] (i.e., 1, -1, i, -i)
+
+# Example 3: x^2 - 2
+poly3 = Add(Pow(x,Constant(2)), Neg(Constant(2)))
+print("Roots for x^2 - 2 = 0:", solve_polynomial(poly3, "x"))
+# Output: [√2, -√2]
+
+# x^2 - 3x + 2 = (x-1)(x-2)
+x = Var("x")
+poly = x**2 + -3*x + 2
+print("Roots:", solve_polynomial(poly, "x"))
+# Expect: [2, 1]
+
+# x^2 - 2 = 0
+poly = x**2 + -2
+print("Roots:", solve_polynomial(poly, "x"))
+# Expect: [√2, -√2]
+# x^2 + 1 = 0
+poly = x**2 + 1
+print("Roots:", solve_polynomial(poly, "x"))
+# Expect: [i, -i]
+# x^3 + x + 1 = 0
+poly = x**3 + x + 1
+print("Roots:", solve_polynomial(poly, "x"))
+# Expect: [FormalRoot(x^3 + x + 1)]
+# x^4 - 1 = (x^2 - 1)(x^2 + 1) = (x-1)(x+1)(x^2 + 1)
+poly = x**4 - 1
+print("Roots:", solve_polynomial(poly, "x"))
+# Expect: [1, -1, i, -i]
+A = Matrix([
+    [0, 0, -1],
+    [1, 0, -1],
+    [0, 1, -1]
+])
+
+cp = A.charpoly("λ")
+print("Characteristic Polynomial:", cp)
+roots = solve_polynomial(cp, "λ")
+print("Eigenvalues:", roots)
+# Expect: [FormalRoot(...)]
+
+A = Matrix([
+    [2, -1, 0],
+    [0, 2, -1],
+    [0, 0, 2]
+])
+cp = A.charpoly("λ")
+print("Characteristic Polynomial:", cp)
+roots = solve_polynomial(cp, "λ")
+print("Eigenvalues:", roots)
+# Expect: [2, 2, 2]
+
+A = Matrix([[0, 0, -1], [1, 0, -1], [0, 1, -1]])
+cp = A.charpoly("λ")
+lambdas = solve_polynomial(cp, "λ")
+print("Eigenvalues (lambdas):")
+for lam in lambdas:
+    print("  λ =", lam)
+# The only thing you can do is return the FormalRoot object:
+lam = FormalRoot(cp, varname="λ")
+print("λ:", lam)
+
+
+# x^3 + x + 1 = 0 has 3 formal roots
+x = Var("x")
+poly = x**3 + x + 1
+roots = solve_polynomial(poly, "x")
+print("Roots:", roots)
+print("Algebraic multiplicity:", len(roots))
+
+# x^3 + x + 1 = 0 has 3 formal roots
+x = Var("x")
+poly = x**3 + x + 1
+roots = solve_polynomial(poly, "x")
+print("Roots:", roots)
+print("Algebraic multiplicity:", len(roots))
+
