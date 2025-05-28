@@ -14,7 +14,8 @@ def numeric_value(x):
 class Expr:
     def simplify(self):
         return self
-
+    
+            
     def __add__(self, other):
         return Add(self, algebraic(other)).simplify()
     def __radd__(self, other):
@@ -29,6 +30,8 @@ class Expr:
         return Add(self, Neg(algebraic(other))).simplify()
     def __rsub__(self, other):
         return Add(algebraic(other), Neg(self)).simplify()
+    def __repr__(self):
+        return "\n" + str(self) 
         
     def __truediv__(self, other):
         return Div(self, algebraic(other)).simplify()
@@ -60,6 +63,8 @@ class Variable(Expr):
 
     def __str__(self):
         return self.name
+    def __repr__(self):
+        return "\n" + str(self) 
 
     def evaluate(self, env={}):
         return env.get(self.name, 0)
@@ -81,6 +86,8 @@ class Constant(Expr):
             return str(self.value)
         #else:
         #    return str(self.value) + "+" + str(self.imaginary) + "𝚒"
+    def __repr__(self):
+        return "\n" + str(self) 
 
     def evaluate(self, env={}):
         return self.value
@@ -169,8 +176,12 @@ class Add(Expr):
         for t in flat:
             key, coeff = monomial_key(t)
             if key is None:
+                if isinstance(t, Constant) and t.value == 0:
+                    continue
                 others.append(t)
             else:
+                if coeff == 0:
+                    continue
                 buckets[key] = buckets.get(key, 0) + coeff
         # 3) Rebuild combined terms
         new_terms = []
@@ -183,7 +194,8 @@ class Add(Expr):
             new_terms.append(term.simplify())
 
         # 4) Append “others” and finalize
-        new_terms.extend(others)
+        new_terms.extend(t for t in others if not (isinstance(t, Constant) and t.value == 0))
+        new_terms = [t for t in new_terms if not (isinstance(t, Constant) and numeric_value(t) == 0)]
         if not new_terms:
             return Constant(0)
         if len(new_terms) == 1:
@@ -196,6 +208,8 @@ class Add(Expr):
         return sum(term.evaluate(env) for term in self.terms)
     def __str__(self):
         return " + ".join(map(str, self.terms))
+    def __repr__(self):
+        return "\n" + str(self) 
 
 class Mul(Expr):
     def __init__(self, *factors):
@@ -206,6 +220,9 @@ class Mul(Expr):
         constant = 1
         for factor in self.factors:
             factor = factor.simplify()
+            if isinstance(factor, Constant):
+                if factor.value == 0:
+                    return Constant(0)
             if isinstance(factor, Constant):
                 constant *= factor.value
             elif isinstance(factor, Mul):
@@ -219,7 +236,9 @@ class Mul(Expr):
 
         if constant != 1:
             flat_factors.insert(0, Constant(constant))
-
+        if len(flat_factors) == 2 and isinstance(flat_factors[0], Constant) and flat_factors[0].value == -1:
+            return Neg(flat_factors[1]).simplify()
+    
         if len(flat_factors) == 1:
             return flat_factors[0]
 
@@ -243,6 +262,8 @@ class Mul(Expr):
                     return f"({f})"
             return str(f)
         return "·".join(parenthesize(f) for f in self.factors)
+    def __repr__(self):
+        return "\n" + str(self) 
         
         
     def substitute(self, var_name, replacement):
@@ -263,7 +284,13 @@ class Neg(Expr):
         return -self.term.evaluate(env)
 
     def __str__(self):
+        if isinstance(self.term, Constant):
+            return f"¬{self.term}"
+        if isinstance(self.term, Variable):
+            return f"¬{self.term}"
         return f"¬({self.term})"
+    def __repr__(self):
+        return "\n" + str(self) 
         
     def substitute(self, var_name, replacement):
         return Neg(self.term.substitute(var_name, replacement))
@@ -275,6 +302,67 @@ class Div(Expr):
 
     def simplify(self):
         n, d = self.numerator.simplify(), self.denominator.simplify()
+        # x:x = 1 (including deeply equal trees)
+        if n == d:    return Constant(1)
+        if str(n) == str(d):    return Constant(1)
+        
+        # 0 / anything = 0
+        if isinstance(n, Constant) and numeric_value(n) == 0:
+            return Constant(0)
+          
+        if isinstance(n, Mul) and isinstance(d, Constant):
+            const = None
+            rest = []
+            for f in n.factors:
+                if isinstance(f, Constant) and const is None:
+                    const = f
+                else:
+                    rest.append(f)
+            if const is not None:
+                c = numeric_value(const)
+                dd = numeric_value(d)
+                if dd != 0 and c % dd == 0:
+                    # Fully divides: just scale the rest
+                    new_const = Constant(c // dd)
+                    if not rest:
+                        return new_const
+                    elif len(rest) == 1:
+                        return Mul(new_const, rest[0]).simplify()
+                    else:
+                        return Mul(new_const, *rest).simplify()
+                else:
+                    # Can't divide, but can reduce fraction
+                    from math import gcd
+                    g = gcd(int(c), int(dd))
+                    if g > 1:
+                        c2, d2 = c // g, dd // g
+                        new_const = Constant(c2)
+                        if not rest:
+                            num = new_const
+                        elif len(rest) == 1:
+                            num = Mul(new_const, rest[0]).simplify()
+                        else:
+                            num = Mul(new_const, *rest).simplify()
+                        return Div(num, Constant(d2)).simplify()
+                        
+        # If numerator is a product and denominator is one of the factors
+        if isinstance(n, Mul):
+            # See if denominator matches any factor (by string representation or better, __eq__)
+            new_factors = []
+            cancelled = False
+            for f in n.factors:
+                if not cancelled and str(f) == str(d):
+                    cancelled = True
+                    continue  # skip this factor
+                new_factors.append(f)
+            if cancelled:
+                if not new_factors:
+                    return Constant(1)
+                elif len(new_factors) == 1:
+                    return new_factors[0]
+                else:
+                    return Mul(*new_factors).simplify()
+        # If both constants, try to reduce    
         if isinstance(n, Constant) and isinstance(d, Constant):
             num = numeric_value(n)
             den = numeric_value(d)
@@ -282,6 +370,8 @@ class Div(Expr):
                 raise ZeroDivisionError("Division by zero!")
             if num % den == 0:
                 return Constant(num // den)
+            if num / den == int(num / den):
+                return Constant(int(num / den))
             return Div(Constant(num), Constant(den))
         if isinstance(d, Constant) and numeric_value(d) == 1:
             return n
@@ -295,13 +385,18 @@ class Div(Expr):
         return self.numerator.evaluate(env) / self.denominator.evaluate(env)
 
     def __str__(self):
-        num = self.numerator
-        den = self.denominator
-        if isinstance(num, Constant): n = f"{num}"
-        else: n = f"({num})"
-        if isinstance(den, Constant): d = f"{den}"
-        else: d = f"[{den}]"
-        return f"{num}:{den}"
+        num, den = self.numerator, self.denominator
+
+        def needs_parens(expr):
+            # Parenthesize only if it's not a single variable or constant
+            return not isinstance(expr, (Variable, Constant))
+        
+        n_str = f"({num})" if needs_parens(num) else str(num)
+        d_str = f"({den})" if needs_parens(den) else str(den)
+        return f"{n_str}∶{d_str}"
+        
+    def __repr__(self):
+        return "\n" + str(self) 
 
 class Root(Expr):
     def __init__(self, radicand, index=2):
@@ -320,7 +415,7 @@ class Root(Expr):
         
         # Root of constant: handle sign and special cases
         if isinstance(r, Constant):
-            val = r.value
+            val = numeric_value(r)
             if val < 0:
                 # Square root of negative: introduce i
                 if n % 2 == 0:
@@ -358,12 +453,13 @@ class Root(Expr):
                 return f"√({self.radicand})"
             else:
                 return f"[{self.index}√({self.radicand})]"
+    def __repr__(self):
+        return "\n" + str(self) 
 
 class Equation:
     def __init__(self, left, right):
         self.left = left
         self.right = right
-
 
     def isolate(self, var_name: str) -> "Equation":
         """
@@ -449,6 +545,8 @@ class Equation:
 
     def __str__(self):
         return f"{self.left} = {self.right}"
+    def __repr__(self):
+        return "\n" + str(self) 
 
     def substitute(self, var_name, replacement):
         """Symbolically replace `var_name` on both sides."""
@@ -503,6 +601,8 @@ class Pow(Expr):
         base_str = f"({self.base})" if need_parens(self.base) else str(self.base)
         exp_str  = f"({self.exponent})" if need_parens(self.exponent) else str(self.exponent)
         return f"{base_str}^{exp_str}"
+    def __repr__(self):
+        return "\n" + str(self) 
  
 def expand(expr):
     """
@@ -649,6 +749,7 @@ def solve_polynomial(expr: Expr, var_name: str) -> list[Expr]:
             continue
 
         deg = max(coeffs)
+        deg = numeric_value(deg)
         arr = [coeffs.get(d, 0) for d in range(deg, -1, -1)]
         arr = [Constant(x) for x in arr]     
         # Degree 1: ax + b = 0
@@ -718,6 +819,13 @@ def factor_polynomial(expr, var_name):
     # 2) peel off linear factors (x - r) for integer roots r
     factors = []
     while len(arr) > 1:
+        if arr[-1] == 0:
+            # x is a factor
+            factors.append(Variable(var_name))
+            # Synthetic division by x <=> shift all coeffs right
+            arr = arr[:-1]
+            continue
+
         found = False
         for r in divisors(arr[-1]):
             q, rem = synthetic_division(arr, r)
@@ -767,6 +875,8 @@ class Matrix:
         for row in self.data:
             row_strs.append("[ " + ", ".join(str(e) for e in row) + " ]")
         return "[\n  " + "\n  ".join(row_strs) + "\n]"
+    def __repr__(self):
+        return "\n" + str(self) 
 
     def __add__(self, other):
         if not isinstance(other, Matrix):
@@ -921,19 +1031,26 @@ class FormalRoot(Expr):
         self.varname = varname
     def __str__(self):
         # Root number only for display
+        def subscript(n):
+            subs = "₀₁₂₃₄₅₆₇₈₉"
+            return ''.join(subs[int(d)] for d in str(n))
         p = expand(self.poly).simplify()
-        suffix = f"_{self.which}"
+        suffix = subscript(self.which)
+        #suffix = f"_{self.which}"
         return f"｛{self.varname}{suffix}:| ({p} = 0)｝"
     def __repr__(self):
-        return str(self)
+        return "\n" + str(self) 
+    
+    def algebraic_multiplicity(self):
+        return len(solve_polynomial(self))
     
 ########## TEST ###########
 x = Var("x")
 # Given your original algebra classes (Expr, Variable, Constant, Add, Mul, etc.)
 
 expr = 2*x + 5    # 2*x + 5
-expr2 = x + 2     # x + 2
-expr3 = 4 - x     # 4 - x (correctly handled via __rsub__)
+expr2 = 1 / (x / 2)  # x / 2
+expr3 = 4 / (x + 1)     # 4 - x (correctly handled via __rsub__)
 expr4 = x - 4     # x - 4
 expr5 = 2 * (x**2 - 1)    # 2*(x^2 - 1)
 expr6 = (x + 1) * 3       # (x + 1)*3
@@ -948,7 +1065,7 @@ print(Div(Constant(2), Constant(3)))
 print(Root(Constant(2)))
 print(Root(Add(Constant(2), Root(Constant(3)))))
 print(Add(Constant(2), Root(Constant(3))))
-print(Add(Constant(1), Mul(Constant(1), Variable("i"))))
+print(Add(Constant(1), Mul(Constant(-2), Variable("i"))))
 print(pi)
 print(euler)
 print(im)
@@ -1287,3 +1404,5 @@ roots = solve_polynomial(poly, "x")
 print("Roots:", roots)
 print("Algebraic multiplicity:", len(roots))
 
+roots = solve_polynomial(poly1, "x")
+print("Roots for x^3 + x + 1 = 0:", roots)
