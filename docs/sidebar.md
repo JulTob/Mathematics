@@ -3,3 +3,4 @@
 - Algebra
   - Vector Spaces
     - [✏️🗒️](Excercise/Vector_Spaces.md)
+    - [📝](./Exercise/Vector_Spaces_1.html)
