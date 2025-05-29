@@ -2,5 +2,4 @@
 - [🏗 Foundations of Mathematics](Foundations_Mathematics.md)
 - Algebra
   - Vector Spaces
-    - [✏️🗒️](Excercise/Vector_Spaces.md)
-    - [📝](./Exercise/Vector_Spaces_1.html)
+    - [✏️🗒️](Exercise/Vector_Spaces.md)
