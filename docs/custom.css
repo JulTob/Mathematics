@@ -1,7 +1,10 @@
-@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap&subset=latin,greek-ext');
-@import url('https://fonts.googleapis.com/css2?family=Rouge+Script&display=swap'); 
-@import url('https://fonts.googleapis.com/css2?family=Courier+Prime&display=swap'); 
+@import url('https://fonts.googleapis.com/css2?family=IM+Fell+DW+Pica&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=IM+Fell+DW+Pica+SC&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=IM+Fell+English+SC&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=IM+Fell+English&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=IM+Fell+French+Canon+SC&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=IM+Fell+French+Canon&display=swap');
+
 /* loads the font from Google’s CDN :contentReference[oaicite:0]{index=0} */
 
 @keyframes ToGold {
@@ -18,25 +21,28 @@
 
 
 body {
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'IM Fell DW Pica', serif !important;
   background: black;
   color: Silver;
     font-size:1.3em
   }
 
 h1, h2 {
+  font-family: 'IM Fell English SC', 'IM Fell DW Pica SC', serif !important;
   border-left: 4px solid Brass; 
   padding-left: 10px;
-  color: Gold;
+  color: Gold !important;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h3, h4, h5, h6 {
+  font-family:  'IM Fell DW Pica SC', 'IM Fell English SC', serif !important;
   border-left: 4px solid Brass; 
   padding-left: 10px;
   color: Gold !important;
 }
 
 .sidebar {
+  font-family: 'IM Fell DW Pica', serif;
   color: gold; 
   background-color: #001; 
 }
@@ -52,21 +58,24 @@ h1, h2, h3, h4, h5, h6 {
     }
 
 .quotes {
-  font-family: 'Rouge Script', 'Great Vibes', cursive;
-  font-size: 1.6em;         
+  font-family: 'IM Fell French Canon SC', 'IM Fell English SC', 'IM Fell DW Pica SC', !important;
+  font-size: 1.3em;         
     /* a bit larger for flourish */
   color: gold;           
   padding: 0.2em 0.4em;     
   border-left: 3px solid Brass; 
     /* subtle “quote bar” */
   margin: 1em 0;
+  padding: 0.8em 1.2em;
   display: block;           
     /* so it behaves like a blockquote */
   line-height: 1.4;
+  background-color: #111;
+  letter-spacing: 0.03em;
   }
 
 blockquote {
-  font-family: 'Courier Prime', mono;
+  font-family: 'IM Fell French Canon SC', 'IM Fell English SC', 'IM Fell DW Pica SC', !important;
   font-size: 1.4em;         
     /* a bit larger for flourish */
   color: silver;           
@@ -82,7 +91,7 @@ blockquote {
   }
 
 code {
-  font-family: 'Courier Prime', mono;
+  font-family: 'IM Fell French Canon', 'IM Fell English', 'IM Fell DW Pica', !important;
   background: black;
   font-size: 1.4em;         
   color: lime;
