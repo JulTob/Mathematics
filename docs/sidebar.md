@@ -12,6 +12,7 @@
 - Numbers
   - [🍏 Numbers](Numbers/Numbers.md)
   - [🍎 Number Notation](Numbers/Notation.md)
+  - [🍐 Number Bases](Numbers/Bases.md)
 - Algebra
   - Vector Spaces
     - [✏️🗒️](Exercise/Vector_Spaces.md)
