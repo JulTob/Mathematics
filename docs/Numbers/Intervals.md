@@ -15,6 +15,14 @@ Intervals are fundamental constructs in mathematics used to describe subsets of 
 <iframe src="closed_interval.html" width="600" height="400" align="stretch" style="border:none;"></iframe>
 
 2
+<iframe src="https://jultob.github.io/Mathematics/Numbers/closed_interval.html" width="600" height="400" align="stretch" style="border:none;"></iframe>
+2.2
+<iframe src="/Numbers/closed_interval.html" width="600" height="400" align="stretch" style="border:none;"></iframe>
+2.3
+<iframe src="closed_interval.html" width="600" height="400" align="stretch" style="border:none;"></iframe>
+
+
+3
 <iframe 
   src="/Mathematics/Numbers/closed_interval.p5.html"
   width="100%"
@@ -24,6 +32,7 @@ Intervals are fundamental constructs in mathematics used to describe subsets of 
   loading="lazy"
 ></iframe>
 
+4
 <div style="position:relative;width:100%;max-width:700px;height:0;padding-bottom:56.25%;margin:auto;">
   <iframe 
     src="/Mathematics/Numbers/closed_interval.p5.html"
