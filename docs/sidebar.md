@@ -3,6 +3,9 @@
 - [🛠️ Problem Solving](ProblemSolving.md)
 - [💭 Critical Thinking: How To Analyze an Argument](CriticalThinking.md)
 - [🫆 Proofs](Proofs.md)
+- [🎁 Sets](Sets/Sets.md)
+  - [📦 Set Theory](Sets/SetTheory.md)
+  - [📮 Relations](Sets/Relations.md)
 - Algebra
   - Vector Spaces
     - [✏️🗒️](Exercise/Vector_Spaces.md)
