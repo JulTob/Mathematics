@@ -169,7 +169,7 @@ flowchart TD
   - 🔴 Find Insight
     🖇️ Try to connect the dots, maybe something will reveal itself that you didn’t expect. 
     > $\color{#0A0}\text{Eureka!}$ 
-    >> $\color{#0A0}Archimedes$ (in the bathtub 🛁).
+    > - $\color{#0A0}Archimedes$ (in the bathtub 🛁).
 
 - ## 🟫 Compare to analog problems
   - 🟤 Mathematicians love analogies. Compare complex problems to simpler ones.   
