@@ -58,7 +58,44 @@
 <script src="https://cdn.jsdelivr.net/npm/docsify-mermaid@2/dist/docsify-mermaid.min.js"></script>
     
 <!-- p5.js CDN -->
-<script src="//toolness.github.io/p5.js-widget/p5-widget.js"></script></body>
+<script src="//toolness.github.io/p5.js-widget/p5-widget.js"></script>
+
+    <script>
+  // Plugin to render ```math blocks with MathJax
+  function renderMathBlocks() {
+    document.querySelectorAll('pre code.lang-math').forEach(function(block) {
+      // Avoid double-processing
+      if (block.classList.contains('rendered-mathjax')) return;
+      block.classList.add('rendered-mathjax');
+
+      // Create a container for MathJax
+      var latex = block.textContent;
+      var div = document.createElement('div');
+      div.innerHTML = latex;
+      block.parentNode.replaceWith(div);
+
+      // Ask MathJax to render
+      if (window.MathJax && window.MathJax.typesetPromise) {
+        MathJax.typesetPromise([div]);
+      }
+    });
+  }
+
+  // Hook into Docsify page change
+  if (window.$docsify) {
+    window.$docsify.plugins = (window.$docsify.plugins || []).concat(function(hook, vm) {
+      hook.doneEach(function() {
+        renderMathBlocks();
+      });
+    });
+  } else {
+    document.addEventListener('DOMContentLoaded', renderMathBlocks);
+  }
+</script>
+
+  
+  
+  </body>
 </html>
 
 
