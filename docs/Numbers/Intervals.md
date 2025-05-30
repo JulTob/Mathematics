@@ -6,8 +6,7 @@ Intervals are fundamental constructs in mathematics used to describe subsets of 
 
 ## 🔒📐 Closed Interval [a, b] 
 
-<div id="interval-closed"></div>
-
+<iframe src="closed_interval.p5.html" width="600" height="400" align="stretch" style="border:none;"></iframe>
 
 
 ```text
