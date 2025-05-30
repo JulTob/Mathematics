@@ -80,7 +80,7 @@ flowchart TD
 
 
 
-#  2️⃣ Computation 
+#   2️⃣  Computation 
 
 🗝️ Once we have a model (of relations, or equations, or a graph, or a set of conditions...), we try finding the solving algorithm(s).
 
