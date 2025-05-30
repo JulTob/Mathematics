@@ -1,7 +1,7 @@
 - [🏠 Home](README.md)
 - [🏗 Foundations of Mathematics](Foundations_Mathematics.md)
 - [🛠️ Problem Solving](ProblemSolving.md)
-- [💭 Critical Thinking: How To Analyze an Argument](CriticalThinking.md)
+- [💭 Critical Thinking](CriticalThinking.md)
 - [🫆 Proofs](Proofs.md)
 - [🎁 Sets](Sets/Sets.md)
   - [📦 Set Theory](Sets/SetTheory.md)
