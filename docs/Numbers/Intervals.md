@@ -107,9 +107,9 @@ Intervals are fundamental constructs in mathematics used to describe subsets of 
 ```
 
 **Definition**: 
-```math
- [a, b] = \{ x \in \mathbb{R} \mid a \leq x \leq b \}  
-```
+$$
+[a, b] = \{ x \in \mathbb{R} \mid a \leq x \leq b \}  
+$$
 
 - Includes both endpoints $( a )$ and $( b )$
 - Represents all real numbers from $( a )$ to $( b )$, inclusive
