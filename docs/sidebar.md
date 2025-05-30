@@ -5,7 +5,7 @@
 - [🫆 Proofs](Proofs.md)
 - [🎁 Sets](Sets/Sets.md)
   - [📦 Set Theory](Sets/SetTheory.md)
-  - [📮 Relations](Sets/Relations.md)
+    - [📮 Relations](Sets/Relations.md)
 - Algebra
   - Vector Spaces
     - [✏️🗒️](Exercise/Vector_Spaces.md)
