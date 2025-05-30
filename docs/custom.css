@@ -142,3 +142,30 @@ p::first-letter {
   line-height: 1;
   padding-right: 0.1em;
 }
+
+
+summary {
+  list-style: none;           /* Removes the triangle in some browsers */
+  cursor: pointer;            /* Makes it clear you can click */
+  outline: none;              /* Removes default focus outline */
+}
+
+summary::-webkit-details-marker {
+  display: none;              /* Removes triangle in webkit browsers */
+}
+
+summary::before {
+  content: "🔴";    /* Right-pointing triangle or any emoji */
+  margin-right: 0.5em;
+  transition: content 0.2s;
+}
+
+details[open] > summary::before {
+  content: "🔘";    /* Down-pointing triangle or another emoji */
+}
+
+/* Optional: Change emoji on hover */
+summary:hover::before {
+  content: "⚪️";    /* Pointer emoji on hover */
+}
+
