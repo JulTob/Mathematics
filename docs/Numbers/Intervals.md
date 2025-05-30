@@ -98,7 +98,7 @@ Intervals are fundamental constructs in mathematics used to describe subsets of 
 
 ## 🔒📐 Closed Interval [a, b] 
 
-<iframe src="/Numbers/closed_interval.p5.html" width="600" height="400" align="stretch" style="border:none;"></iframe>
+<iframe src="/Numbers/closed_interval.html" width="600" height="400" align="stretch" style="border:none;"></iframe>
 
 
 ```text
