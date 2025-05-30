@@ -1,11 +1,6 @@
 
-> $\color{#784}\text{If you go through life}$ 
-> $\color{#784}\text{learning and being curious, }$
-> $\color{#784}\text{you might be changed }$
-> $\color{#784}\text{by what you learn.}$
-> $\color{#784}\text{ And what you think you know}$
-> $\color{#784}\text{ might come apart.}$
-> - ⚜️ $\color{#784}\text{Sartre}$
+> If you go through life learning and being curious, you might be changed by what you learn. And what you think you know might come apart. 
+> - ⚜️ Sartre
 
 Mathematics isn’t just about a fixed set of symbols—it’s about the diverse ways we represent and communicate ideas. Just as our logical language builds precise theories, our choice of number base is a tool to systematize counting.
 
