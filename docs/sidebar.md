@@ -13,6 +13,7 @@
   - [🍏 Numbers](Numbers/Numbers.md)
   - [🍎 Number Notation](Numbers/Notation.md)
   - [🍐 Number Bases](Numbers/Bases.md)
+  - [🍊 Intervals](Numbers/Intervals.md)
 - Algebra
   - Vector Spaces
     - [✏️🗒️](Exercise/Vector_Spaces.md)
