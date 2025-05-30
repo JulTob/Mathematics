@@ -149,7 +149,7 @@ flowchart TD
     > $\color{#A00}\text{If I have seen further than others,}$ 
     > $\color{#A00}\text{it is because I have stood }$
     > $\color{#A00}\text{on the shoulders of giants.}$ 
-    >> 📚 $\color{#A00}\text{Isaac Newton}$
+    > - 📚 $\color{#A00}\text{Isaac Newton}$
 
 - ## 🟩 Spot the **knowns** and **unknowns**
   - 🟢 Like a detective, list the facts you have and what you need to uncover. 🕵️ Finding out what pieces we have: the knowns; and what we’re still looking for: the unknowns. We may clarify, like a detective does, information about what is yet to be determined.
