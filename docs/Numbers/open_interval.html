@@ -30,10 +30,10 @@ function sketch(p) {
     marks = [];
     for (let i = 0; i < n; i++) {
       marks.push(x0 + (x1 - x0) * i / (n - 1));
-    }
+      }
     p.textFont('monospace', 15);
     p.noLoop();
-  };
+    };
 
   p.draw = function() {
     p.clear();
@@ -46,10 +46,10 @@ function sketch(p) {
     for (let i = 0; i < n; i++) {
       p.line(marks[i], y - 12, marks[i], y + 12);
       p.noStroke();
-      p.fill(60);
+      p.fill(100);
       p.textAlign(p.CENTER, p.TOP);
       p.text(i, marks[i], y + 16);
-    }
+      }
 
     // Draw interval (thick colored line)
     let a = Math.min(endpoint1, endpoint2), b = Math.max(endpoint1, endpoint2);
@@ -63,9 +63,9 @@ function sketch(p) {
     p.text('🟠', marks[endpoint2], y + 13);
 
     // Show [a, b] value above
-    p.textSize(15); p.noStroke(); p.fill(50, 80, 200);
+    p.textSize(15); p.noStroke(); p.fill(50, 100, 200);
     let v1 = Math.min(endpoint1, endpoint2), v2 = Math.max(endpoint1, endpoint2);
-    let label = `[${v1}, ${v2}]`;
+    let label = `(${v1}, ${v2})`;
     let mid = (marks[endpoint1] + marks[endpoint2]) / 2;
     p.text(label, mid, y - 48);
   };
