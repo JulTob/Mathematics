@@ -71,10 +71,11 @@ width = 200
 align="right">](https://youtu.be/rV7WjNWHOsI)
 
 ## 🔰 Addition 
-```math
+
+$$
 \color{#7A2}
 \text{Addition means combining two quantities.}
-```
+$$
 
 ⚜️ $\color{Gold}Addition$ is combining two quantities. To 
 $\color{Gold}Add$
