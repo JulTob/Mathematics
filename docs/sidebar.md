@@ -6,6 +6,7 @@
 - [🎁 Sets](Sets/Sets.md)
   - [📦 Set Theory](Sets/SetTheory.md)
   - [📮 Relations](Sets/Relations.md)
+  - [💬 Mathematical Language](Sets/MathLang.md)
 - Algebra
   - Vector Spaces
     - [✏️🗒️](Exercise/Vector_Spaces.md)
