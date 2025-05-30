@@ -1,5 +1,5 @@
-# Intervals in Real Analysis 📏🧠✨
-<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.0/p5.min.js"></script>
+# Intervals in Real Analysis 📏✨
+🧠 <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.0/p5.min.js"></script>
 
 
 <div id="p5-interval-interactive"></div>
