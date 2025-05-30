@@ -7,41 +7,7 @@ Intervals are fundamental constructs in mathematics used to describe subsets of 
 
 ## 🔒📐 Closed Interval [a, b] 
 
-1
 <iframe src="https://jultob.github.io/Mathematics/Numbers/closed_interval.html" width="600" height="400" align="stretch" style="border:none;"></iframe>
-1.2
-<iframe src="/Numbers/closed_interval.html" width="600" height="400" align="stretch" style="border:none;"></iframe>
-1.3
-<iframe src="closed_interval.html" width="600" height="400" align="stretch" style="border:none;"></iframe>
-
-2
-<iframe src="https://jultob.github.io/Mathematics/Numbers/closed_interval.html" width="600" height="400" align="stretch" style="border:none;"></iframe>
-2.2
-<iframe src="/Numbers/closed_interval.html" width="600" height="400" align="stretch" style="border:none;"></iframe>
-2.3
-<iframe src="closed_interval.html" width="600" height="400" align="stretch" style="border:none;"></iframe>
-
-
-3
-<iframe 
-  src="/Mathematics/Numbers/closed_interval.p5.html"
-  width="100%"
-  height="350"
-  style="border:none;display:block;margin:auto;"
-  allowfullscreen
-  loading="lazy"
-></iframe>
-
-4
-<div style="position:relative;width:100%;max-width:700px;height:0;padding-bottom:56.25%;margin:auto;">
-  <iframe 
-    src="/Mathematics/Numbers/closed_interval.p5.html"
-    style="position:absolute;top:0;left:0;width:100%;height:100%;border:none;"
-    allowfullscreen
-    loading="lazy"
-  ></iframe>
-</div>
-
 
 ```text
 ⬜️⚪️🟥🟥🟥🟥🟥⚪️⬜️▫️▫️▫️
