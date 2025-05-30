@@ -22,7 +22,7 @@ body {
   font-family: 'IM Fell DW Pica', 'IM Fell English', 'IM Fell French Canon', serif !important;
   background: black;
   color: Silver;
-    font-size:1.3em
+  font-size:1.3em
   }
 
 h1, h2 {
@@ -30,7 +30,7 @@ h1, h2 {
   border-left: 4px solid Brass; 
   padding-left: 10px;
   color: Gold !important;
-  font-size: 2em;         
+  font-size: 4em;         
 
 }
 
@@ -39,7 +39,7 @@ h3, h4, h5, h6 {
   border-left: 4px solid Brass; 
   padding-left: 10px;
   color: Gold !important;
-  font-size: 1.5em;         
+  font-size: 3em;         
 
 }
 
@@ -61,45 +61,45 @@ h3, h4, h5, h6 {
 
 .quotes {
   font-family: 'IM Fell French Canon SC', 'IM Fell English SC', 'IM Fell DW Pica SC', !important;
-  font-size: 1.3em;         
+  font-size: 1.1em;         
     /* a bit larger for flourish */
   color: gold;           
   padding: 0.2em 0.4em;     
   border-left: 3px solid Brass; 
     /* subtle “quote bar” */
-  margin: 1em 0;
+  margin: 0.3em 0;
   padding: 0.8em 1.2em;
   display: block;           
     /* so it behaves like a blockquote */
-  line-height: 1.4;
+  line-height: 1.1;
   background-color: #111;
   letter-spacing: 0.03em;
   }
 
 blockquote {
   font-family: 'IM Fell French Canon SC', 'IM Fell English SC', 'IM Fell DW Pica SC', !important;
-  font-size: 1.4em;         
+  font-size: 1.1em;         
     /* a bit larger for flourish */
   color: silver;           
-  padding: 1em 1.2em;     
-  border-left: 3px solid Brass; 
+  padding: 1em 1.1em;     
+  border-left: 3px solid Gold; 
     /* subtle “quote bar” */
   margin: 1em 0;
   display: block;           
     /* so it behaves like a blockquote */
-  line-height: 1.4;
-  background-color: #001;
-  background: #001;
+  line-height: 1.2;
+  background-color: #223;
+  background: #223;
   }
 
 code {
   font-family: 'IM Fell French Canon', 'IM Fell English', 'IM Fell DW Pica', !important;
   background: black;
-  font-size: 1.4em;         
+  font-size: 1.1em;         
   color: lime;
   padding: 0.2em 0.4em;
   border-radius: 3px;
-  font-size: 0.95em;
+  font-size: 0.85em;
 }
 
 /* docs/custom.css */
@@ -135,7 +135,7 @@ table, th, td {
     }
 
 p::first-letter {
-  font-size: 2.5em;
+  font-size: 2.0em;
   float: left;
   line-height: 1;
   padding-right: 0.1em;
