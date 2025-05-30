@@ -15,7 +15,7 @@ Derived from Arabic numerals, whose origins trace back to classical India 🐘. 
 📕 The digits represent quantities from zero to nine.
 
 ```math
-\color{#666}
+\color{gold}
 \begin{matrix}
 0  & := &  \\
 1 & :=  & 𓃉   \\
@@ -38,7 +38,7 @@ Derived from Arabic numerals, whose origins trace back to classical India 🐘. 
 
 
 ```math
-\color{#675}
+\color{gold}
 \begin{matrix}
 1   & : &   Unit &       (10⁰) \\
 10  & : &   Tens &       (10¹) \\
@@ -57,7 +57,7 @@ This convention makes large numbers easier to parse and work with.
 We use a **different** separator (usually `.` or `,`) to indicate decimals (numbers with negative powers of 10), separating whole numbers from fractional parts.
 
 ```math
-\color{#684}
+\color{gold}
 1.000.000.000,50 = \text{ One billion and fifty-hundredths.}
 ```
 Decimal notation allows us to represent parts of a whole with clarity and precision.
@@ -68,15 +68,15 @@ Decimal notation allows us to represent parts of a whole with clarity and precis
 
 📕 The number is written as 
 ```math
-\color{#693}
+\color{gold}
 a \times 10^b
 ```
 ```math
-\color{#693}
+\color{gold}
 a· ⏨b
 ```
 ```math
-\color{#693}
+\color{gold}
 a· EⅩ^b
 ```
 - Where $a$ is a number between 1 and 10 ($1≤a<10$)
@@ -133,7 +133,7 @@ $\color{#748}= 6 × 10^9$
 📙 When dividing two numbers in scientific notation, divide the coefficients and subtract the exponents:
 
 ```math
-\color{#757}
+\color{gold}
 \frac{8 \times 10^9}{4 \times 10^6} = \frac{8}{4} \times 10^{9-6} = 2 \times 10^3
 ```
 
