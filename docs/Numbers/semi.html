@@ -2,22 +2,16 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>P5</title>
+  <title>Semi-Open Interval</title>
   <script src="https://cdn.jsdelivr.net/npm/p5@1.9.3/lib/p5.min.js"></script>
   <style>
-    body {
-      margin: 0;
-      padding: 0;
-      overflow: hidden;
-    }
-    canvas {
-      display: block;
-    }
+    body { margin: 0; padding: 0; overflow: hidden; }
+    canvas { display: block; }
   </style>
 </head>
 <body>
+  <div id="interval-semi"></div>
   <script>
-
 function sketch(p) {
   let n = 20; // number of marks
   let x0 = 50, x1 = 450, y = 80;
@@ -52,33 +46,44 @@ function sketch(p) {
       p.text(i, marks[i], y + 16);
     }
 
+    // Figure out which endpoint is lower/higher
+    let left = endpoint1, right = endpoint2;
+    let isAscending = endpoint1 < endpoint2;
+
     // Draw interval (thick colored line)
     let a = Math.min(endpoint1, endpoint2), b = Math.max(endpoint1, endpoint2);
     p.stroke(255,140,0); p.strokeWeight(9);
     p.line(marks[a], y, marks[b], y);
 
-    // Draw draggable endpoints as  emoji
+    // Draw draggable endpoints as emojis
     p.textAlign(p.CENTER, p.BOTTOM);
     p.textSize(18);
-    p.text('🟦', marks[endpoint1], y + 13 );
-    p.text('🔵', marks[endpoint2], y + 13);
+    if (isAscending) {
+      // left: closed [🟨], right: open )🟡
+      p.text('🟨', marks[left], y + 13 );
+      p.text('🟡', marks[right], y + 13 );
+    } else {
+      // left: open (🟡, right: closed ]🟨
+      p.text('🟡', marks[right], y + 13 );
+      p.text('🟨', marks[left], y + 13 );
+    }
 
-    // Show [a, b] value above
+    // Show interval notation above
     p.textSize(15); p.noStroke(); p.fill(50, 80, 200);
     let v1 = Math.min(endpoint1, endpoint2), v2 = Math.max(endpoint1, endpoint2);
-    let label = `[${v1}, ${v2}]`;
+    let label = isAscending
+      ? `[${v1}, ${v2})`
+      : `(${v2}, ${v1}]`;
     let mid = (marks[endpoint1] + marks[endpoint2]) / 2;
     p.text(label, mid, y - 48);
   };
 
   // Drag and drop logic
   p.mousePressed = function() {
-    for (let i = 0; i < n; i++) {
-      let d1 = p.dist(p.mouseX, p.mouseY, marks[endpoint1], y - 7);
-      let d2 = p.dist(p.mouseX, p.mouseY, marks[endpoint2], y - 7);
-      if (d1 < 24) dragging = 'a';
-      else if (d2 < 24) dragging = 'b';
-    }
+    let d1 = p.dist(p.mouseX, p.mouseY, marks[endpoint1], y - 7);
+    let d2 = p.dist(p.mouseX, p.mouseY, marks[endpoint2], y - 7);
+    if (d1 < 24) dragging = 'a';
+    else if (d2 < 24) dragging = 'b';
   };
 
   p.mouseDragged = function() {
@@ -102,7 +107,6 @@ function sketch(p) {
   };
 }
 new p5(sketch, "interval-semi");
-
-      </script>
+  </script>
 </body>
 </html>
