@@ -18,7 +18,11 @@
       }
     }  
 
-
+@keyframes beat {
+  0%, 100% { transform: scale(1); }
+  30%     { transform: scale(1.22); }
+  60%     { transform: scale(0.95); }
+}
 
 body {
   font-family: 'IM Fell DW Pica', 'IM Fell English', 'IM Fell French Canon', serif !important;
@@ -145,17 +149,22 @@ p::first-letter {
 
 
 summary {
-  list-style: none;           /* Removes the triangle in some browsers */
-  cursor: pointer;            /* Makes it clear you can click */
-  outline: none;              /* Removes default focus outline */
-}
+    position: relative;
+    padding-left: 2em;
+    list-style: none;           /* Removes the triangle in some browsers */
+    cursor: pointer;            /* Makes it clear you can click */
+    outline: none;              /* Removes default focus outline */
+    }
 
 summary::-webkit-details-marker {
   display: none;              /* Removes triangle in webkit browsers */
 }
 
 summary::before {
-  content: "🔴";    /* Right-pointing triangle or any emoji */
+  content: "⚪️";    /* Right-pointing triangle or any emoji */
+      animation: beat 0.7s infinite;
+      transform-origin: center;
+      transition: filter 0.2s;
   margin-right: 0.5em;
   transition: content 0.2s;
 }
@@ -166,6 +175,10 @@ details[open] > summary::before {
 
 /* Optional: Change emoji on hover */
 summary:hover::before {
-  content: "⚪️";    /* Pointer emoji on hover */
+  content: "🔴";    /* Pointer emoji on hover */
+    animation: beat 0.7s infinite;
+      transform-origin: center;
+      transition: filter 0.2s;
+
 }
 
