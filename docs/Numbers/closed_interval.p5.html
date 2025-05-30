@@ -1,4 +1,24 @@
-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>P5</title>
+  <script src="https://cdn.jsdelivr.net/npm/p5@1.9.3/lib/p5.min.js"></script>
+  <!--<script src="sketch.js"></script>-->
+  
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+    }
+    canvas {
+      display: block;
+    }
+  </style>
+</head>
+<body>
+    <script>
 function sketch(p) {
   let n = 20; // number of marks
   let x0 = 50, x1 = 450, y = 80;
@@ -82,4 +102,10 @@ function sketch(p) {
     dragging = null;
   };
 }
+
+
+</script>
+</body>
+</html>
+
 new p5(sketch, "interval-closed");
