@@ -30,18 +30,16 @@ $$
  width="500" height="160" align="center" 
  style="border:none;"></iframe>
 
-
-
 **Definition**: 
-```
+$$
  (a, b) = \{ x \in \mathbb{R} \mid a < x < b \}  
-```
+$$
 
 - Excludes endpoints
 - Only the interior points are included
 - Often used to define neighborhoods around a point
 
-**Alternate Notation**: $( ]a, b[ )$ (common in European texts)
+**Alternative Notation**: $]a, b[$ (common in European texts)
 
 ---
 
@@ -54,22 +52,19 @@ These intervals include one endpoint but exclude the other.
  style="border:none;"></iframe>
 
 
-
-
-
 ### Left-Closed, Right-Open: [a, b)
 
-```text
+$$
 ◻️⚪️🟨🟨🟨🟡⬜️◻️◽️▫️
 ┄┄┄╊━━━━━┽┄┄
   a       b
-```
+$$
 
 
 **Definition**: 
-```math
- [a, b) = \{ x \in \mathbb{R} \mid a \leq x < b \}  
-```
+$$
+[a, b) = \{ x \in \mathbb{R} \mid a \leq x < b \}  
+$$
 
 
 - Includes $( a )$, excludes $( b )$
@@ -80,7 +75,7 @@ These intervals include one endpoint but exclude the other.
 ### Left-Open, Right-Closed: (a, b]
 
 ```text
-⬜️⬜️🟢🟩🟩🟩🟩⚪️◻️◽️▫️
+⬜️⬜️🟡🟨🟨🟨🟨⚪️◻️◽️▫️
 ┄┄┄┾━━━━━━━╉┄┄
   a         b
 ```
