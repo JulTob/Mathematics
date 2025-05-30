@@ -176,11 +176,11 @@ flowchart TD
   - 🟤 Does the problem become simpler when you take away one element? What if you add one?
 
 - ## 🟪 Insert something new
-  🟣 Here’s where creativity comes in: what happens if you tweak something unexpected? Maybe add a new term to the equation? 🤯  
-  🟣 This is where mathematicians get to be artists 🎨.
+  - 🟣 Here’s where creativity comes in: what happens if you tweak something unexpected? Maybe add a new term to the equation? 🤯  
+  - 🟣 This is where mathematicians get to be artists 🎨.
 
 - ## 🟦 Take cases
-  🔵 Break the problem into smaller, manageable chunks. If you can’t solve the whole puzzle, maybe you can solve one piece at a time 🧩.
+  - 🔵 Break the problem into smaller, manageable chunks. If you can’t solve the whole puzzle, maybe you can solve one piece at a time 🧩.
 
 - ## 🟩 Work backwards 
   - 🟢 Try to Reverse Engineer the problem.
