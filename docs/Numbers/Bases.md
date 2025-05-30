@@ -22,8 +22,7 @@ Mathematics isn’t just about a fixed set of symbols—it’s about the diverse
 ♻️ A **number base** simply determines **how many unique digits** we use before "rolling over" and starting again, but adding an extra digit to the left. In base ten (the one we use daily), we have **ten digits**: `0`, `1`, `2`, `3`, `4`, `5`, `6`, `7`, `8`, `9`. When we hit ten, we start back at `0`, but add a **1** to the left: `10`.   
 This method of “rolling over” is fundamental to all number bases.
 
-> [!NOTE]
-> When discussing different bases, remember that every base uses its own complete “alphabet” of digits.
+>  When discussing different bases, remember that every base uses its own complete “alphabet” of digits.
 
 ---
 
