@@ -9,6 +9,8 @@
   - [📮 Relations](Sets/Relations.md)
   - [💬 Mathematical Language](Sets/MathLang.md)
   - [🔣 Symbols](Sets/Symbols.md)
+- Numbers
+  - [🍏 Numbers](Numbers/Numbers.md)
 - Algebra
   - Vector Spaces
     - [✏️🗒️](Exercise/Vector_Spaces.md)
