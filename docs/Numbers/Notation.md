@@ -1,9 +1,9 @@
 <img src="https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExcWs5ZGoyOGc2d3RiZ2Rkenp2bm5jMjBiaGVja29wMHQwYWx6bzlzZCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/n3HzrBo2TxjkQ/giphy.gif"
 width= 200 align="right">
 
-> $\color{#55F}\text{Politics is for the present,}$ 
-> $\color{#55F}\text{but an equation is for eternity.}$
-> - ⚛️ $\color{#56E}\text{Albert Einstein}$
+> Politics is for the present,
+> but an equation is for eternity.
+> - ⚛️ Albert Einstein
 
 
 # 🌍 Standard Notation
