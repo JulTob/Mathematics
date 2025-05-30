@@ -5,7 +5,7 @@
 > $\color{#784}\text{by what you learn.}$
 > $\color{#784}\text{ And what you think you know}$
 > $\color{#784}\text{ might come apart.}$
-> > - ⚜️ $\color{#784}\text{Sartre}$
+> - ⚜️ $\color{#784}\text{Sartre}$
 
 Mathematics isn’t just about a fixed set of symbols—it’s about the diverse ways we represent and communicate ideas. Just as our logical language builds precise theories, our choice of number base is a tool to systematize counting.
 
