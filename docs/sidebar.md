@@ -11,6 +11,7 @@
   - [🔣 Symbols](Sets/Symbols.md)
 - Numbers
   - [🍏 Numbers](Numbers/Numbers.md)
+  - [🍎 Number Notation](Numbers/Notation.md)
 - Algebra
   - Vector Spaces
     - [✏️🗒️](Exercise/Vector_Spaces.md)
