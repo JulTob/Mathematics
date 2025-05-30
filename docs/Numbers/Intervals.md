@@ -7,7 +7,7 @@ Intervals are fundamental constructs in mathematics used to describe subsets of 
 
 ## 🔒📐 Closed Interval [a, b] 
 
-<iframe src="https://jultob.github.io/Mathematics/Numbers/closed_interval.html" width="600" height="400" align="stretch" style="border:none;"></iframe>
+<iframe src="https://jultob.github.io/Mathematics/Numbers/closed_interval.html" width="500" height="160" align="stretch" style="border:none;"></iframe>
 
 ```text
 ⬜️⚪️🟥🟥🟥🟥🟥⚪️⬜️▫️▫️▫️
