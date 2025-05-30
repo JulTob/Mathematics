@@ -9,6 +9,10 @@ Intervals are fundamental constructs in mathematics used to describe subsets of 
 
 1
 <iframe src="https://jultob.github.io/Mathematics/Numbers/closed_interval.html" width="600" height="400" align="stretch" style="border:none;"></iframe>
+1.2
+<iframe src="/Numbers/closed_interval.html" width="600" height="400" align="stretch" style="border:none;"></iframe>
+1.3
+<iframe src="closed_interval.html" width="600" height="400" align="stretch" style="border:none;"></iframe>
 
 2
 <iframe 
