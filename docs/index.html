@@ -82,15 +82,28 @@
   }
 
   // Hook into Docsify page change
-  if (window.$docsify) {
-    window.$docsify.plugins = (window.$docsify.plugins || []).concat(function(hook, vm) {
-      hook.doneEach(function() {
-        renderMathBlocks();
+window.$docsify.plugins = (window.$docsify.plugins || []).concat([
+  function(hook, vm) {
+    // Always run MathJax after each page
+    hook.doneEach(() => { MathJax.typesetPromise(); });
+    // Render math blocks too!
+    hook.doneEach(() => {
+      document.querySelectorAll('pre code.lang-math').forEach(function(block) {
+        if (block.classList.contains('rendered-mathjax')) return;
+        block.classList.add('rendered-mathjax');
+        var latex = block.textContent;
+        var div = document.createElement('div');
+        div.innerHTML = latex;
+        block.parentNode.replaceWith(div);
+        if (window.MathJax && window.MathJax.typesetPromise) {
+          MathJax.typesetPromise([div]);
+          }
       });
     });
-  } else {
-    document.addEventListener('DOMContentLoaded', renderMathBlocks);
   }
+]);
+
+      
 </script>
 
   
