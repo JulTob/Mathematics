@@ -16,6 +16,7 @@
   - [🍊 Intervals](Numbers/Intervals.md)
   - [🍋 Bounds](Numbers/Bounds.md)
 - Algebra
-  - [🥚🐣 Equations](Algebra/Equations.md)
+  - [🥚 Equations](Algebra/Equations.md)
+  - [🐣 Systems of Equations](Algebra/Systems.md)
 - Vector Algebra
   - [✏️🗒️](Exercise/Vector_Spaces.md)
