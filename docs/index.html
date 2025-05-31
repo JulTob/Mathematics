@@ -11,47 +11,54 @@
 <body>
   <div id="app"></div>
 
-  <!-- Docsify Core -->
-  <script src="https://cdn.jsdelivr.net/npm/docsify@4"></script>
+<!-- Docsify -->
+<script src="https://cdn.jsdelivr.net/npm/docsify@4"></script>
 
-  <!-- MathJax -->
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/docsify-latex@0"></script>
+<!-- MathJax engine -->
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
-  <!-- Mermaid + Plugin (order matters!) -->
-  <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/docsify-mermaid@2/dist/docsify-mermaid.min.js"></script>
+<!-- Docsify MathJax plugin -->
+<script src="https://cdn.jsdelivr.net/npm/docsify-latex@0"></script>
 
-  <!-- Docsify config -->
-  <script>
-    window.$docsify = {
-      name: 'Mathematics',
-      loadSidebar: 'sidebar.md',
-      auto2top: true,
-      subMaxLevel: 2,
-      sidebarDisplayLevel: 1,
+<!-- Mermaid.js -->
+<script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
 
-      mermaidConfig: {
-        startOnLoad: true,
-        theme: "dark"
-      },
+<!-- Docsify Mermaid Plugin -->
+<script src="https://cdn.jsdelivr.net/npm/docsify-mermaid@2/dist/docsify-mermaid.min.js"></script>
 
-      latex: {
-        inlineMath: [['$', '$'], ['\\(', '\\)']],
-        displayMath: [['$$', '$$'], ['\\[', '\\]']]
-      },
+<!-- p5.js widget support -->
+<script src="//toolness.github.io/p5.js-widget/p5-widget.js"></script>
 
-      plugins: [
-        function(hook, vm) {
-          hook.doneEach(() => {
+<!-- Docsify configuration -->
+<script>
+  window.$docsify = {
+    name: 'Mathematics',
+    loadSidebar: 'sidebar.md',
+    auto2top: true,
+    subMaxLevel: 2,
+    sidebarDisplayLevel: 1,
+
+    mermaidConfig: {
+      startOnLoad: true,
+      theme: "dark"
+    },
+
+    latex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      displayMath: [['$$', '$$'], ['\\[', '\\]']]
+    },
+
+    plugins: [
+      function(hook, vm) {
+        hook.doneEach(() => {
+          if (window.MathJax) {
             MathJax.typesetPromise();
-          });
-        }
-      ]
-    };
-  </script>
+          }
+        });
+      }
+    ]
+  };
+</script>
 
-  <!-- p5.js widget -->
-  <script src="//toolness.github.io/p5.js-widget/p5-widget.js"></script>
 </body>
 </html>
