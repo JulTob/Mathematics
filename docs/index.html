@@ -1,119 +1,57 @@
 <!DOCTYPE html>
-
 <html>
-  <head>
-    <title>Learning Mathematics</title>
-    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify/themes/dark.css">
-    <link rel="stylesheet" href="custom.css">
+<head>
+  <title>Learning Mathematics</title>
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify/themes/dark.css">
+  <link rel="stylesheet" href="custom.css">
+  <!-- p5.js globally -->
+  <script src="https://cdn.jsdelivr.net/npm/p5@1.9.0/lib/p5.min.js"></script>
+</head>
 
+<body>
+  <div id="app"></div>
 
+  <!-- Docsify Core -->
+  <script src="https://cdn.jsdelivr.net/npm/docsify@4"></script>
 
-<!-- p5.js globally -->
-<script src="https://cdn.jsdelivr.net/npm/p5@1.9.0/lib/p5.min.js"></script>
+  <!-- MathJax -->
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/docsify-latex@0"></script>
 
-    </head>
-  <body>
-    <div id="app"></div>
+  <!-- Mermaid + Plugin (order matters!) -->
+  <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/docsify-mermaid@2/dist/docsify-mermaid.min.js"></script>
 
-<!-- Docsify core -->
-<script src="https://cdn.jsdelivr.net/npm/docsify@4"></script>
-<!-- MathJax engine -->
-<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-<!-- Docsify MathJax plugin -->
-<script src="https://cdn.jsdelivr.net/npm/docsify-latex@0"></script>
-<!-- Mermaid.js -->
-<script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
-<!-- Docsify Mermaid Plugin -->
-<script src="https://cdn.jsdelivr.net/npm/docsify-mermaid@2/dist/docsify-mermaid.min.js"></script>
+  <!-- Docsify config -->
+  <script>
+    window.$docsify = {
+      name: 'Mathematics',
+      loadSidebar: 'sidebar.md',
+      auto2top: true,
+      subMaxLevel: 2,
+      sidebarDisplayLevel: 1,
 
-<script>
-  window.$docsify = {
-    loadSidebar: 'sidebar.md',  // we explicitly use "sidebar.md"
-    auto2top: true,
-    name: 'Mathematics',
-    subMaxLevel: 2,
-    sidebarDisplayLevel: 1,
-    hideSidebar: false,
-    mermaidConfig: {
-    startOnLoad: true,
-    theme: "dark"
-  },
+      mermaidConfig: {
+        startOnLoad: true,
+        theme: "dark"
+      },
 
-  latex: {
-    inlineMath: [['$', '$'], ['\\(', '\\)']],
-    displayMath: [['$$', '$$'], ['\\[', '\\]']]
-    }
-  };
-  window.$docsify.plugins = [
-    function(hook, vm) {
-      hook.doneEach(() => { MathJax.typesetPromise(); });
-      }
-    ];
+      latex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$', '$$'], ['\\[', '\\]']]
+      },
+
+      plugins: [
+        function(hook, vm) {
+          hook.doneEach(() => {
+            MathJax.typesetPromise();
+          });
+        }
+      ]
+    };
   </script>
-<script src="https://cdn.jsdelivr.net/npm/docsify/lib/docsify.min.js"></script>
 
-<!-- Docsify main engine -->
-<script src="https://cdn.jsdelivr.net/npm/docsify/lib/docsify.min.js"></script>
-
-<!-- Mermaid.js -->
-<script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
-<!-- Docsify Mermaid Plugin -->
-<script src="https://cdn.jsdelivr.net/npm/docsify-mermaid@2/dist/docsify-mermaid.min.js"></script>
-    
-<!-- p5.js CDN -->
-<script src="//toolness.github.io/p5.js-widget/p5-widget.js"></script>
-
-    <script>
-  // Plugin to render ```math blocks with MathJax
-  function renderMathBlocks() {
-    document.querySelectorAll('pre code.lang-math').forEach(function(block) {
-      // Avoid double-processing
-      if (block.classList.contains('rendered-mathjax')) return;
-      block.classList.add('rendered-mathjax');
-
-      // Create a container for MathJax
-      var latex = block.textContent;
-      var div = document.createElement('div');
-      div.innerHTML = latex;
-      block.parentNode.replaceWith(div);
-
-      // Ask MathJax to render
-      if (window.MathJax && window.MathJax.typesetPromise) {
-        MathJax.typesetPromise([div]);
-      }
-    });
-  }
-
-  // Hook into Docsify page change
-window.$docsify.plugins = (window.$docsify.plugins || []).concat([
-  function(hook, vm) {
-    // Always run MathJax after each page
-    hook.doneEach(() => { MathJax.typesetPromise(); });
-    // Render math blocks too!
-    hook.doneEach(() => {
-      document.querySelectorAll('pre code.lang-math').forEach(function(block) {
-        if (block.classList.contains('rendered-mathjax')) return;
-        block.classList.add('rendered-mathjax');
-        var latex = block.textContent;
-        var div = document.createElement('div');
-        div.innerHTML = latex;
-        block.parentNode.replaceWith(div);
-        if (window.MathJax && window.MathJax.typesetPromise) {
-          MathJax.typesetPromise([div]);
-          }
-      });
-    });
-  }
-]);
-
-      
-</script>
-
-  
-  
-  </body>
+  <!-- p5.js widget -->
+  <script src="//toolness.github.io/p5.js-widget/p5-widget.js"></script>
+</body>
 </html>
-
-
-
-
