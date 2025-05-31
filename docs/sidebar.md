@@ -14,6 +14,7 @@
   - [🍎 Number Notation](Numbers/Notation.md)
   - [🍐 Number Bases](Numbers/Bases.md)
   - [🍊 Intervals](Numbers/Intervals.md)
+  - [🍋 Bounds](Numbers/Bounds.md)
 - Algebra
   - Vector Spaces
     - [✏️🗒️](Exercise/Vector_Spaces.md)
