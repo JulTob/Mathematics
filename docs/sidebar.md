@@ -4,7 +4,7 @@
 - [💭 Critical Thinking](CriticalThinking.md)
 - [🫆 Proofs](Proofs.md)
   
-- Sets
+Sets
 - [🎁 Sets](Sets/Sets.md)
   - [📦 Set Theory](Sets/SetTheory.md)
   - [📮 Relations](Sets/Relations.md)
