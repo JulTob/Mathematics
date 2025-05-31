@@ -69,8 +69,9 @@ width= 200 align="right">
 🎼 Mathematics is often compared to music: a harmonious blend of structure and creativity. 
 
 <blockquote class="quotes">
-<span style="color: Gold; padding: 4px">🎹 “Music is the pleasure the human soul experiences from counting without being aware that it is counting.” </span>        
-- <span style="color: Gold;">Gottfried Leibniz</span>
+<span style="color: Gold; padding: 4px">🎹 “Music is the pleasure the human soul experiences from counting without being aware that it is counting.” 
+
+- Gottfried Leibniz</span>
 </blockquote>
 
 ⚙️  Mathematics is not merely a tool for scientific progress; it is the engine of innovation in technology, science, and even the arts. From the algorithms that power our smartphones to the theories that explain the cosmos, mathematics forms the core logic of modern civilization.  
