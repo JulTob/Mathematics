@@ -12,12 +12,10 @@ Find all the values that make every equation in the system true *simultaneously*
 🔍 Consider a simple system with two variables:
 
 $$
-
 \begin{cases}
   x + y = 5 \\
   x - y = 1
 \end{cases}
-
 $$
 
 A solution is a pair $(x, y)$ that makes both equations true at the same time. This situation is called a "satisfied" system. Try $( x = 3, y = 2 )$ by changing the letters for the numbers, each to its own. Plug these into both equations and you'll see they BOTH hold, so they are balanced. The art is not just finding one answer, but seeing how all the constraints work together towards a perfectly balanced solution.
