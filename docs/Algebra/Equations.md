@@ -13,6 +13,7 @@ Whether you’re rearranging your budget or modeling the arc of a comet, you’r
 
 🌌 Like explorers mapping unknown territories, mathematicians use equations to chart the invisible landscapes of logic and nature. ✏️
 
+
 ---
 
 ### **1. What Are Equations?** ⚖️🧮📏  
@@ -20,7 +21,9 @@ Whether you’re rearranging your budget or modeling the arc of a comet, you’r
 
 🤔 An equation asserts the equality of two expressions, implying a balance. Like a scale, altering one side necessitates adjusting the other. 
 
-📐  
+<iframe src="https://jultob.github.io/Mathematics/Algebra/applesNoranges.html" 
+ width="500" height="320" align="center" 
+ style="border:none;"></iframe>  
 
 $$
 x + 2 = 5
