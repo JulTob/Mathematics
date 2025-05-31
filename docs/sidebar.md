@@ -9,12 +9,13 @@
   - [📮 Relations](Sets/Relations.md)
   - [💬 Mathematical Language](Sets/MathLang.md)
   - [🔣 Symbols](Sets/Symbols.md)
-- Numbers
+- ## Numbers
   - [🍏 Numbers](Numbers/Numbers.md)
   - [🍎 Number Notation](Numbers/Notation.md)
   - [🍐 Number Bases](Numbers/Bases.md)
   - [🍊 Intervals](Numbers/Intervals.md)
   - [🍋 Bounds](Numbers/Bounds.md)
-- Algebra
-  - Vector Spaces
+- ## Algebra
+  - [🥚🐣 Equations](Algebra/Equations.md)
+- ## Vector Algebra
     - [✏️🗒️](Exercise/Vector_Spaces.md)
