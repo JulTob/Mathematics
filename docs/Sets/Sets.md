@@ -6,8 +6,7 @@ In the grand narrative of mathematics, set theory stands as the foundation upon 
 
 At its core, **set theory** is the study of **collections of objects**, known as **elements**. These objects might be numbers, letters, geometric shapes, or even other sets. 
 
-> [!IMPORTANT]
-> ## $\color{cyan}Set$
+> <h4 style="color:DodgerBlue;">Set:</h1>
 > A well-defined collection of distinct objects, known as elements.
 
 Like galaxies in the universe, sets bring unity to diverse elements, but they do so without any particular order. The absence of order allows us to focus on the relationship between elements and their membership within sets.
