@@ -244,6 +244,7 @@ $$
 This sequence starts as:  $\{1,1,2,3,5,8,13,…\}$
 
 Here, each element emerges as the sum of the two preceding ones, embodying the harmony of infinite patterns within the finite.
+
 ---
 
 ### **The Set as a Foundation**
