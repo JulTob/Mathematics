@@ -64,7 +64,7 @@ $$
 
 $$
 \color{gold}
-\begin{array}
+\begin{array}{lll}
     \color{goldenrod}{𝑎∈𝑨}     &:& \text{𝑎 Is an element of 𝑨}   \\
     \textcolor{tomato}{𝑎∉𝑨}     &:& \text{𝑎 Is not an element of 𝑨}   \\
     \\
