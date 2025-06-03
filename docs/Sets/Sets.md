@@ -225,8 +225,9 @@ $$
 # ⭐ **Comparing Sets**
 
 Two sets are **equal** if they contain exactly the same elements, regardless of order or repetition:
+
 $$
-\left\{a, b, c \right\} = \left\{c, b, a \right\}
+\left\\{a, b, c \right\\} = \left\\{c, b, a \right\\}
 $$
 
 ---
