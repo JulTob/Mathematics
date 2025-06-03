@@ -86,9 +86,9 @@ $$
     A ⋂ B &:& \text{Intersection of sets A and B (Elements common to both)}   \\
     A ⋃ B &:& \text{Union of sets A and B (Elements in either or both)}   \\
     A^c   &:& \text{The complement of set A (Everything outside of A)}   \\
-    \end{matrix}
+    \end{matrix} \\
   \end{matrix}
-  \end{matrix}
+  
 $$
 
 These tools allow us to express relationships with precision, like celestial maps charting the universe.
