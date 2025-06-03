@@ -64,6 +64,7 @@ $$
 
 $$
 \color{gold}
+\left[
 \begin{array}{lll}
     \color{goldenrod}{𝑎∈𝑨}     &:& \text{𝑎 Is an element of 𝑨}   \\
     \textcolor{tomato}{𝑎∉𝑨}     &:& \text{𝑎 Is not an element of 𝑨}   \\
@@ -82,7 +83,8 @@ $$
     A ⋃ B &:& \text{Union of sets A and B (Elements in either or both)}   \\
     \\
     A^c   &:& \text{The complement of set A (Everything outside of A)}   \\
-    \end{array}
+\end{array}
+\right]
 $$
 
 $$
@@ -107,9 +109,22 @@ $$
 \begin{matrix}
     2  & 2 \\
     3 & 3 
-    \end{matrix}
+\end{matrix}
 $$
 
+$$
+\begin{pmatrix}
+    2  & 2 \\
+    3 & 3 
+    \end{pmatrix}
+$$
+
+$$
+\begin{bmatrix}
+    2  & 2 \\
+    3 & 3 
+    \end{bmatrix}
+$$
 These tools allow us to express relationships with precision, like celestial maps charting the universe.
 
 ---
