@@ -107,24 +107,19 @@ $$
 
 $$
 \begin{matrix}
-    2  & 2 \\
+    2  & 2 \\\\
     3 & 3 
 \end{matrix}
 $$
 
 $$
 \begin{pmatrix}
-    2  & 2 \\
+    2  & 2 \cr
     3 & 3 
     \end{pmatrix}
 $$
 
-$$
-\begin{bmatrix}
-    2  & 2 \\
-    3 & 3 
-    \end{bmatrix}
-$$
+
 These tools allow us to express relationships with precision, like celestial maps charting the universe.
 
 ---
