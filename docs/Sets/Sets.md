@@ -63,6 +63,7 @@ $$
 - **$\color{gold}\complement$**: The **complement** of a set, representing everything **outside** a given set.
 
 $$
+\color{gold}
 \begin{array}{lll}
     𝑎∈𝑨     &:& \text{𝑎 Is an element of 𝑨}   \\
     𝑎∉𝑨     &:& \text{𝑎 Is not an element of 𝑨}   \\ \\
