@@ -64,8 +64,6 @@ $$
 
 $$
 \color{#DDDDDD}
-
-
 \begin{matrix}
   \begin{matrix}
     𝑎∈𝑨     &:& \text{𝑎 Is an element of 𝑨}   \\
