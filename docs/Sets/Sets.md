@@ -103,6 +103,13 @@ $$
     \end{matrix}
 $$
 
+$$
+\begin{matrix}
+    2  & 2 \\
+    3 & 3 
+    \end{matrix}
+$$
+
 These tools allow us to express relationships with precision, like celestial maps charting the universe.
 
 ---
