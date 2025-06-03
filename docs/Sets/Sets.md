@@ -66,17 +66,22 @@ $$
 \color{gold}
 \begin{array}
     \color{goldenrod}{𝑎∈𝑨}     &:& \text{𝑎 Is an element of 𝑨}   \\
-    \textcolor{tomato}{𝑎∉𝑨}     &:& \text{𝑎 Is not an element of 𝑨}   \\ \\
-    \textcolor{red}{∅}     &:& \text{The empty set} \\ \\
+    \textcolor{tomato}{𝑎∉𝑨}     &:& \text{𝑎 Is not an element of 𝑨}   \\
+    \\
+    \textcolor{red}{∅}     &:& \text{The empty set} \\ 
+    \\
     𝑨 ⊂ 𝑩     &:& \text{𝑨 Is a subset of 𝑩} \\
     𝑨 ⊃ 𝑩    &:& \text{𝑨 Is a superset of 𝑩} \\
-    𝑨 ⊆ 𝑩     &:& \text{𝑨 Is a subset, possibly equal 𝑩} \\
-    𝑨 ⊇ 𝑩    &:& \text{Is a superset, possibly equal} \\ \\
+    𝑨 ⊆ 𝑩     &:& \text{𝑨 Is a subset, possibly equal 𝑩} 
+    \\
+    𝑨 ⊇ 𝑩    &:& \text{Is a superset, possibly equal} \\ 
+    \\
     A = B &:& \text{Sets A and B are equal}   \\
     A ≠ B &:& \text{Sets A and B are not equal}   \\
     A ⋂ B &:& \text{Intersection of sets A and B (Elements common to both)}   \\
     A ⋃ B &:& \text{Union of sets A and B (Elements in either or both)}   \\
-    A^c   &:& \text{The complement of set A (Everything outside of A)}   \\ \\
+    \\
+    A^c   &:& \text{The complement of set A (Everything outside of A)}   \\
     \end{array}
 $$
 
