@@ -64,7 +64,7 @@ $$
 
 $$
 \color{gold}
-\begin{matrix}
+\begin{array}
     \color{goldenrod}{𝑎∈𝑨}     &:& \text{𝑎 Is an element of 𝑨}   \\
     \textcolor{tomato}{𝑎∉𝑨}     &:& \text{𝑎 Is not an element of 𝑨}   \\ \\
     \textcolor{red}{∅}     &:& \text{The empty set} \\ \\
@@ -77,7 +77,7 @@ $$
     A ⋂ B &:& \text{Intersection of sets A and B (Elements common to both)}   \\
     A ⋃ B &:& \text{Union of sets A and B (Elements in either or both)}   \\
     A^c   &:& \text{The complement of set A (Everything outside of A)}   \\ \\
-    \end{matrix}
+    \end{array}
 $$
 
 These tools allow us to express relationships with precision, like celestial maps charting the universe.
