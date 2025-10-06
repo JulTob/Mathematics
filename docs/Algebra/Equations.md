@@ -70,11 +70,26 @@ This interpretive process is central to mathematical logic and computing. This a
 
 ## **4. 📖 Functional Narratives** 
 
-📚 An equation like \$y = 2x + 3\$ is not just a recipe, but a rule that maps inputs to outputs: A narrative for every \$x\$ you may choose towards a corresponding \$y\$ waiting to be discovered. This mapping is the backbone of modeling: it allows us to predict, to simulate, to imagine outcomes from fragments of information.
+📚 An equation like $y = 2x + 3$ is not just a recipe, but a rule that maps inputs to outputs: A narrative for every \$x\$ you may choose towards a corresponding \$y\$ waiting to be discovered. This mapping is the backbone of modeling: it allows us to predict, to simulate, to imagine outcomes from fragments of information.
+
 
 > 🧱 Equations thus help us model systems and predict outcomes even with partial data. 
 
 🌉 Equations are bridges: from what we know to what we wish to find out. They let us reason through uncertainty and sketch the outlines of invisible systems. 
+
+When equations become familiar, widen the lens:
+
+- Study [🐣 Systems of Equations](Systems.md) to see how multiple constraints interact and how
+  solution sets can be visualised geometrically.
+- Use the [✏️🗒️ Vector Spaces](../Exercise/Vector_Spaces.md) notebook to interpret solution sets as
+  objects in a space—this bridge leads directly into the linear algebra materials in the project.
+- Return to [🍋 Bounds](../Numbers/Bounds.md) whenever inequalities appear; bounds and equations
+  together frame optimisation problems.
+
+Thinking of equations as the grammar of relationships makes it natural to build larger structures on
+top of them.
+
+---
 
 ---
 
