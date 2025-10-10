@@ -21,7 +21,7 @@ min $x_1 - 2x_2 + x_4$
 
    *  $x_1  - x_3  + s_1 = 3$
    *  $x_1  - x_4  + s_2 = 2 $
-   *  min $ - 8 + 3x_1 + x_4$
+   *  min $- 8 + 3x_1 + x_4$
 
 3. Therefor we have the simplex tableau for
 
@@ -31,6 +31,11 @@ min $x_1 - 2x_2 + x_4$
 | $s_2$ |  $2 - x_1  + x_4$ | 2 |
 | min    | $- 8 + 3x_1 + x_4$ | -8 |
 
-where we select $x_1$ as pibot, and as the ratio of both entries is -3, we choose the top one by order.
+where we select $x_4$ as is the lesser increase.
+
+| $s_1$ |  $3 - x_1  + x_3$ | 3 |
+|--|--|--|
+| $x_4$ |  $-2 + x_1  +s_2 $ | -2 |
+| min    | $- 10 + 4x_1 +s_2)$ | -10 |
 
 
